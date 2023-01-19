@@ -1,0 +1,48 @@
+.home {
+}
+
+.home__wrapper {
+  background-color: $color-white;
+}
+
+.home__hero__title {
+  @extend %center;
+  @extend %title-140;
+  text-transform: uppercase;
+}
+
+.home__hero__content {
+  margin: auto;
+  text-align: center;
+  @extend %center;
+}
+
+.home__hero__description {
+  @extend %description-32;
+}
+
+.home__hero__image {
+}
+
+.home__hero__description_1 {
+}
+.home__barbers {
+}
+.home__barbers__wrapper {
+}
+.home__barbers__tile {
+}
+.home__barbers.description_barbers {
+}
+.home__barbers__name {
+}
+.home__barbers__name__description {
+}
+.home__products {
+}
+.home__products__wrapper {
+}
+.home__products__title {
+}
+.home__products__description {
+}

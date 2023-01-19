@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('../fonts/ppmeuemontreal-medium.woff') format('woff'),
+    url('../fonts/ppneuemontreal-medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Neue World Super Cond';
+  src: url('../fonts/ppneueworld-supercondensedlight.woff2') format('woff2'),
+    url('../fonts/ppneueworld-supercondensedlight.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
