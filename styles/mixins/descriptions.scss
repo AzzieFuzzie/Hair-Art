@@ -16,7 +16,9 @@
 
 %description-32 {
   font-size: 3.2rem;
-  line-height: 1.5;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
 
   //   @include media('<phone') {
   //     font-size: 2.8rem;

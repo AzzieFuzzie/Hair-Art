@@ -6,28 +6,50 @@ block content
             section.home__hero
                 each section in home.data.body
                     if section.slice_type == "hero"
-                         h2.home__hero__title=section.primary.title
-                         .home__hero__content
-                            p.home__hero__description=section.primary.description
-                            img.home__hero__image(alt=section.primary.image.alt src=section.primary.image.url)
-                            p.home__hero__description=section.primary.description_1
+                        h2.home__hero__title=section.primary.title
+                        p.home__hero__description=section.primary.description
+                        img.home__hero__image(alt=section.primary.image.alt src=section.primary.image.url)
+                        p.home__hero__description__1=section.primary.description_1
 
             each section in home.data.body
                 if section.slice_type == "barbers"
                     section.home__barbers
                         .home__barbers__wrapper
-                            h2.home__barbers__tile=section.primary.title_barbers
+                            h2.home__barbers__title=section.primary.title_barbers
                             p.home__barbers.description=section.primary.description_barbers
-                            each barber in section.items 
-                                    h2.home__barbers__name=barber.barber_name
-                                    p.home__barbers__name__description=barber.barber_description
+                            //- each barber in section.items 
+                            //-         h2.home__barbers__name=barber.barber_name
+                            //-         img.home__barbers__image(src=barber.barber_image.url)
+                            //-         p.home__barbers__name__description=barber.barber_description
+                            h2.home__barbers__name= assets[0].barber_name
+                            img.home__barbers__image(src=assets[0].barber_image.url)
+                            p.home__barbers__name__description=assets[0].barber_description
+
+                            h2.home__barbers__name= assets[1].barber_name
+                            img.home__barbers__image(src=assets[1].barber_image.url)
+                            p.home__barbers__name__description=assets[1].barber_description
+
+                            h2.home__barbers__name= assets[2].barber_name
+                            img.home__barbers__image(src=assets[2].barber_image.url)
+                            p.home__barbers__name__description=assets[2].barber_description
+
+                            h2.home__barbers__name= assets[3].barber_name
+                            img.home__barbers__image(src=assets[3].barber_image.url)
+                            p.home__barbers__name__description=assets[3].barber_description
+
+                            
                                     
             each section in home.data.body
                 if section.slice_type == "products"
                     section.home__products
                         .home__products__wrapper
                             h2.home__products__title=section.primary.title_products
+                            .line
                             p.home__products__description=section.primary.products_description
+                            img.home__products__image( src=section.primary.product_image.url)
+                            img.home__products__image__1( src=section.primary.product_image_1.url)
+                            img.home__products__image__2( src=section.primary.product_image_2.url)
+                            p.home__products__description__1=section.primary.products_description_1
 
                                 
                                 

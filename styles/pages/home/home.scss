@@ -5,32 +5,41 @@
   background-color: $color-white;
 }
 
-.home__hero__title {
-  @extend %center;
-  @extend %title-140;
-  text-transform: uppercase;
+.home__hero {
+  @extend %grid;
 }
 
-.home__hero__content {
-  margin: auto;
-  text-align: center;
+.home__hero__title {
+  @extend %title-140;
+  grid-column: 3/7;
+  text-transform: uppercase;
   @extend %center;
 }
 
 .home__hero__description {
   @extend %description-32;
+  grid-column: 2/4;
+  text-indent: 30%;
 }
 
 .home__hero__image {
+  grid-column: 4/6;
+  margin: auto;
+  max-width: 38rem;
 }
 
-.home__hero__description_1 {
+.home__hero__description__1 {
+  grid-column: 6/8;
+  text-indent: 30%;
 }
 .home__barbers {
+  @extend %grid;
 }
 .home__barbers__wrapper {
+  margin: 0rem 4rem 0 4rem;
 }
-.home__barbers__tile {
+.home__barbers__title {
+  @extend %title-140;
 }
 .home__barbers.description_barbers {
 }
@@ -41,8 +50,48 @@
 .home__products {
 }
 .home__products__wrapper {
+  @extend %grid;
+  margin: 0rem 4rem 0 4rem;
 }
 .home__products__title {
+  @extend %title-140;
+  text-indent: 10%;
+  grid-column: 1/5;
+  grid-row: 1/2;
+}
+
+.line {
+  grid-column: 1/9;
+  grid-row: 2/3;
+  background-color: $color-west-coast;
+  height: 0.2rem;
+  width: 100%;
 }
 .home__products__description {
+  @extend %description-32;
+  grid-column: 1/5;
+  grid-row: 3/4;
+  text-indent: 30%;
+}
+
+.home__products__image {
+  grid-column: 1/4;
+  grid-row: 4/5;
+}
+
+.home__products__image__1 {
+  grid-column: 6/7;
+  grid-row: 3/4;
+}
+
+.home__products__image__2 {
+  grid-column: 8/9;
+  grid-row: 3/4;
+}
+
+.home__products__description__1 {
+  @extend %description-32;
+  grid-column: 4/6;
+  grid-row: 4/6;
+  text-indent: 30%;
 }

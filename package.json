@@ -2,11 +2,12 @@
   "name": "floema",
   "version": "1.0.0",
   "description": "A Barbershop Website",
+  "type": "module",
   "scripts": {
-    "backend:build": "node app.js",
-    "backend:development": "nodemon app.js ",
-    "frontend:build": "webpack --progress --config webpack.config.build.js",
-    "frontend:development": "webpack serve --progress --config webpack.config.development.js",
+    "backend:build": "node babel app.js — out-file app-compiled.js",
+    "backend:development": "nodemon  —exec babel-node app.js",
+    "frontend:build": "webpack --progress --config webpack.config.build.cjs",
+    "frontend:development": "webpack serve --progress --config webpack.config.development.cjs",
     "start": "concurrently --kill-others \"npm run backend:development\" \"npm run frontend:development\""
   },
   "repository": {
@@ -58,6 +59,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@babel/node": "^7.20.7",
     "@prismicio/client": "^6.7.3",
     "@prismicio/helpers": "^2.3.8",
     "body-parser": "^1.19.0",

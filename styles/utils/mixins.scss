@@ -15,8 +15,8 @@
 %grid {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  gap: 2rem;
-  margin: 4rem;
+  justify-content: center;
+  // gap: 1rem;
 }
 
 @mixin ratio($height, $width) {
