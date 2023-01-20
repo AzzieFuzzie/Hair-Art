@@ -11,31 +11,39 @@ block content
                         img.home__hero__image(alt=section.primary.image.alt src=section.primary.image.url)
                         p.home__hero__description__1=section.primary.description_1
 
+            
             each section in home.data.body
                 if section.slice_type == "barbers"
                     section.home__barbers
                         .home__barbers__wrapper
                             h2.home__barbers__title=section.primary.title_barbers
-                            p.home__barbers.description=section.primary.description_barbers
-                            //- each barber in section.items 
-                            //-         h2.home__barbers__name=barber.barber_name
-                            //-         img.home__barbers__image(src=barber.barber_image.url)
-                            //-         p.home__barbers__name__description=barber.barber_description
-                            h2.home__barbers__name= assets[0].barber_name
-                            img.home__barbers__image(src=assets[0].barber_image.url)
-                            p.home__barbers__name__description=assets[0].barber_description
+                            .line
+                        
+                            .home__barbers__profile
+                                h2.home__barbers__name= assets[0].barber_name
+                                span 01
+                                img.home__barbers__image(src=assets[0].barber_image.url)
+                                p.home__barbers__name__description=assets[0].barber_description
 
-                            h2.home__barbers__name= assets[1].barber_name
-                            img.home__barbers__image(src=assets[1].barber_image.url)
-                            p.home__barbers__name__description=assets[1].barber_description
+                            .home__barbers__profile__1
+                                h2.home__barbers__name__1= assets[1].barber_name
+                                span 02
+                                img.home__barbers__image__1(src=assets[1].barber_image.url)
+                                p.home__barbers__name__description__1=assets[1].barber_description
 
-                            h2.home__barbers__name= assets[2].barber_name
-                            img.home__barbers__image(src=assets[2].barber_image.url)
-                            p.home__barbers__name__description=assets[2].barber_description
+                            .home__barbers__profile__2
+                                h2.home__barbers__name__2= assets[2].barber_name
+                                span 03
+                                img.home__barbers__image__2(src=assets[2].barber_image.url)
+                                p.home__barbers__name__description__2=assets[2].barber_description
 
-                            h2.home__barbers__name= assets[3].barber_name
-                            img.home__barbers__image(src=assets[3].barber_image.url)
-                            p.home__barbers__name__description=assets[3].barber_description
+                            .home__barbers__profile__3
+                                h2.home__barbers__name__3= assets[3].barber_name
+                                span 04
+                                img.home__barbers__image__3(src=assets[3].barber_image.url)
+                                p.home__barbers__name__description__3=assets[3].barber_description
+
+                            p.home__barbers__description=section.primary.description_barbers
 
                             
                                     

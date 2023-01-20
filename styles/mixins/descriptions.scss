@@ -6,12 +6,14 @@
   }
 }
 
-%description-14 {
-  font-size: 1.4rem;
+%description-20 {
+  font-size: 2rem;
+  font-family: $font-montreal;
+  font-weight: medium;
 
-  @include media('<phone') {
-    font-size: 3rem;
-  }
+  // @include media('<phone') {
+  //   font-size: 3rem;
+  // }
 }
 
 %description-32 {

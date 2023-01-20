@@ -38,6 +38,17 @@ const handleRequest = async () => {
     }
   });
 
+  home.data.body.forEach((section) => {
+    if (section.slice_type === 'hero_gallery') {
+      console.log(section.items[0]);
+      assets.push(section.items[0]);
+      assets.push(section.items[1]);
+      assets.push(section.items[2]);
+      assets.push(section.items[3]);
+      console.log(assets);
+    }
+  });
+
   return {
     home,
     assets,
