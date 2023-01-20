@@ -7,11 +7,20 @@ block content
                 each section in home.data.body
                     if section.slice_type == "hero"
                         h2.home__hero__title=section.primary.title
-                        p.home__hero__description=section.primary.description
-                        img.home__hero__image(alt=section.primary.image.alt src=section.primary.image.url)
-                        p.home__hero__description__1=section.primary.description_1
+                        .home__hero__wrapper__1
+                            p.home__hero__description=section.primary.description
+                            img.home__hero__image(alt=section.primary.image.alt src=section.primary.image.url)
+                            p.home__hero__description__1=section.primary.description_1
+                .line
 
-            
+                section.home__gallery 
+                    .home__gallery__wrapper
+                        img.home__gallery__image(src=assets[4].gallery_image.url)
+                        img.home__gallery__image__1(src=assets[5].gallery_image.url)
+                        img.home__gallery__image__2(src=assets[6].gallery_image.url)
+                        img.home__gallery__image__3(src=assets[7].gallery_image.url)
+
+
             each section in home.data.body
                 if section.slice_type == "barbers"
                     section.home__barbers

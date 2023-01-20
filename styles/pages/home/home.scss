@@ -5,40 +5,100 @@
   background-color: $color-white;
 }
 
+// .home__hero {
+//   @extend %grid;
+// }
+
+// .home__hero__title {
+//   @extend %title-140;
+//   grid-column: 3/7;
+//   text-transform: uppercase;
+//   @extend %center;
+// }
+
+// .home__hero__description {
+//   @extend %description-32;
+//   grid-column: 2/4;
+//   text-indent: 20%;
+// }
+
+// .home__hero__image {
+//   grid-column: 4/5;
+//   margin: auto;
+//   max-width: 38rem;
+// }
+
+// .home__hero__description__1 {
+//   grid-column: 5/8;
+//   text-indent: 20%;
+// }
 .home__hero {
-  @extend %grid;
+  margin-top: 2rem;
+}
+
+.home__hero__wrapper__1 {
+  display: flex;
+  justify-content: flex-start;
+  transform: translateX(10%);
+  max-width: 145rem;
+  margin: 2rem auto;
 }
 
 .home__hero__title {
   @extend %title-140;
-  grid-column: 3/7;
-  text-transform: uppercase;
   @extend %center;
+  text-align: center;
+  text-transform: uppercase;
+
+  // transform: translateX(-50%);
 }
 
 .home__hero__description {
   @extend %description-32;
-  grid-column: 2/4;
-  text-indent: 30%;
+
+  text-indent: 20%;
 }
 
 .home__hero__image {
-  grid-column: 4/6;
-  margin: auto;
+  grid-column: 4/5;
+
   max-width: 38rem;
 }
 
 .home__hero__description__1 {
-  grid-column: 6/8;
-  text-indent: 30%;
+  text-indent: 20%;
 }
+
+.home__gallery__wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: center;
+  column-gap: 4rem;
+  margin: 2rem 4rem;
+}
+.home__gallery__image {
+  grid-column: 1/2;
+}
+
+.home__gallery__image__1 {
+  grid-column: 2/3;
+}
+
+.home__gallery__image__2 {
+  grid-column: 4/5;
+}
+
+.home__gallery__image__3 {
+  grid-column: 5/6;
+}
+
 .home__barbers {
   background-color: $color-vulcan;
 }
 .home__barbers__wrapper {
   @extend %grid;
   @extend %description-20;
-  margin: 0rem 4rem 0 4rem;
+  margin: 10rem 4rem 10rem 4rem;
   color: $color-white;
 }
 .home__barbers__title {
