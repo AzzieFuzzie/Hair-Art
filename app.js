@@ -24,30 +24,30 @@ app.use((req, res, next) => {
 
 const handleRequest = async () => {
   const home = await client.getSingle('home');
+  const footer = await client.getSingle('footer');
 
   const assets = [];
 
   home.data.body.forEach((section) => {
     if (section.slice_type === 'barbers') {
-      console.log(section.items[0]);
       assets.push(section.items[0]);
       assets.push(section.items[1]);
       assets.push(section.items[2]);
       assets.push(section.items[3]);
-      console.log(assets);
     }
   });
 
   home.data.body.forEach((section) => {
     if (section.slice_type === 'hero_gallery') {
-      console.log(section.items[0]);
       assets.push(section.items[0]);
       assets.push(section.items[1]);
       assets.push(section.items[2]);
       assets.push(section.items[3]);
-      console.log(assets);
     }
   });
+
+  assets.push(footer.data);
+  console.log(assets[8]);
 
   return {
     home,

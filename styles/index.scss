@@ -13,4 +13,10 @@
 @import './base/fonts';
 @import './base/base';
 
-@import './pages/home/home';
+@import './pages/home/hero';
+@import './pages/home/gallery';
+@import './pages/home/barbers';
+@import './pages/home/products';
+
+@import './partials/navigation';
+@import './partials/footer';

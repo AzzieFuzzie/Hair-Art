@@ -1,0 +1,68 @@
+.home__footer {
+  padding: 8rem 4rem;
+  background-color: $color-vulcan;
+  color: $color-white;
+}
+.home__footer__wrapper {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-areas:
+    ". title ."
+    ". form ."
+    "list list_1 list_2"
+    ". title_2 ."
+    ". description .";
+  @extend %description-24;
+}
+.home__footer__title {
+  @extend %title-100;
+  grid-area: title;
+  text-align: center;
+  //   text-indent: 10%;
+}
+
+.home__footer__form {
+  grid-area: form;
+  justify-self: center;
+  align-self: baseline;
+}
+
+.home__footer__input {
+  @extend %input;
+}
+
+.home__footer__button {
+  @extend %description-32;
+  border: 0.2rem $color-white solid;
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.home__footer__wrapper ul li {
+  margin: 1.5rem 0;
+}
+
+.home__footer__wrapper ul:nth-of-type(1) {
+  grid-area: list;
+}
+
+.home__footer__wrapper ul:nth-of-type(2) {
+  grid-area: list_1;
+  justify-self: center;
+}
+
+.home__footer__wrapper ul:nth-of-type(3) {
+  grid-area: list_2;
+  justify-self: end;
+}
+
+.home__footer__title__2 {
+  @extend %title-55;
+  grid-area: title_2;
+  text-align: center;
+}
+
+.home__footer__description {
+  grid-area: description;
+  text-align: center;
+}

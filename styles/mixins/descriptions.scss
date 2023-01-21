@@ -1,13 +1,23 @@
 %description-12 {
   font-size: 1.2rem;
 
-  @include media('<phone') {
+  @include media("<phone") {
     font-size: 3rem;
   }
 }
 
 %description-20 {
   font-size: 2rem;
+  font-family: $font-montreal;
+  font-weight: medium;
+
+  // @include media('<phone') {
+  //   font-size: 3rem;
+  // }
+}
+
+%description-24 {
+  font-size: 2.4rem;
   font-family: $font-montreal;
   font-weight: medium;
 

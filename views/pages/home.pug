@@ -26,29 +26,33 @@ block content
                     section.home__barbers
                         .home__barbers__wrapper
                             h2.home__barbers__title=section.primary.title_barbers
-                            .line
+                            .line__1
                         
-                            .home__barbers__profile
-                                h2.home__barbers__name= assets[0].barber_name
-                                span 01
+                            .home__barbers__profile.frame
+                                .home__barbers__profile__title
+                                    h2.home__barbers__name= assets[0].barber_name
+                                    span 01
                                 img.home__barbers__image(src=assets[0].barber_image.url)
                                 p.home__barbers__name__description=assets[0].barber_description
 
-                            .home__barbers__profile__1
-                                h2.home__barbers__name__1= assets[1].barber_name
-                                span 02
+                            .home__barbers__profile__1.frame
+                                .home__barbers__profile__title
+                                    h2.home__barbers__name__1= assets[1].barber_name
+                                    span 02
                                 img.home__barbers__image__1(src=assets[1].barber_image.url)
                                 p.home__barbers__name__description__1=assets[1].barber_description
 
-                            .home__barbers__profile__2
-                                h2.home__barbers__name__2= assets[2].barber_name
-                                span 03
+                            .home__barbers__profile__2.frame
+                                .home__barbers__profile__title
+                                    h2.home__barbers__name__2= assets[2].barber_name
+                                    span 03
                                 img.home__barbers__image__2(src=assets[2].barber_image.url)
                                 p.home__barbers__name__description__2=assets[2].barber_description
 
-                            .home__barbers__profile__3
-                                h2.home__barbers__name__3= assets[3].barber_name
-                                span 04
+                            .home__barbers__profile__3.frame
+                                .home__barbers__profile__title
+                                    h2.home__barbers__name__3= assets[3].barber_name
+                                    span 04
                                 img.home__barbers__image__3(src=assets[3].barber_image.url)
                                 p.home__barbers__name__description__3=assets[3].barber_description
 
@@ -61,14 +65,44 @@ block content
                     section.home__products
                         .home__products__wrapper
                             h2.home__products__title=section.primary.title_products
-                            .line
+                            .line__2
                             p.home__products__description=section.primary.products_description
                             img.home__products__image( src=section.primary.product_image.url)
                             img.home__products__image__1( src=section.primary.product_image_1.url)
                             img.home__products__image__2( src=section.primary.product_image_2.url)
                             p.home__products__description__1=section.primary.products_description_1
 
-                                
-                                
-                                    
+            section.home__footer   
+                .home__footer__wrapper
+                    h3.home__footer__title=assets[8].subscribe_title
+                    .home__footer__form
+                        input.home__footer__input(type="text")
+                        button.home__footer__button Subscribe
+                    //- ul
+                    //-     li=assets[8].Treatments_title          
+                    //-     li=assets[8].Contact_title        
+                    //-     li=assets[8].About_title          
+                    //-     li=assets[8].Facebook_link          
+                    //-     li=assets[8].Instagram_link
+                    ul
+                        li Treatments         
+                        li About     
+                        li Contact    
+                        li Facebook      
+                        li Instagram                  
+                    ul 
+                        li=assets[8].text         
+                        li=assets[8].text_1        
+                        li=assets[8].text_2        
+                        li=assets[8].text_3         
+                        li=assets[8].text_4
+                    ul 
+                        li=assets[8].time             
+                        li=assets[8].time_1             
+                        li=assets[8].time_2            
+                        li=assets[8].time_3             
+                        li=assets[8].time_4 
+                    h1.home__footer__title__2 Hair Art By Khalifa 
+                    p.home__footer__description All rights reserved copyright @2023              
+
  

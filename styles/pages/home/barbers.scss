@@ -1,0 +1,68 @@
+.home__barbers {
+  background-color: $color-vulcan;
+  padding: 8rem 4rem;
+}
+.home__barbers__wrapper {
+  @extend %description-20;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  color: $color-white;
+
+  grid-template-areas:
+    "barbers_title . . . ."
+    "line line line line line"
+    "barbers_profile .  barbers_profile_1 . barbers_profile_2 "
+    ". barbers_profile_3 . barbers_description barbers_description";
+}
+.home__barbers__title {
+  @extend %title-140;
+  grid-area: barbers_title;
+}
+
+.line__1 {
+  grid-area: line;
+  background-color: $color-west-coast;
+  height: 0.2rem;
+  width: 100%;
+}
+
+.frame {
+  background-color: $color-west-coast;
+  padding: 2rem;
+}
+.frame img {
+  margin: 1.5rem 0;
+}
+
+.frame p {
+  text-indent: 10%;
+}
+
+.home__barbers__profile {
+  grid-area: barbers_profile;
+}
+
+.home__barbers__profile__title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home__barbers__profile__1 {
+  grid-area: barbers_profile_1;
+}
+
+.home__barbers__profile__2 {
+  grid-area: barbers_profile_2;
+}
+
+.home__barbers__profile__3 {
+  grid-area: barbers_profile_3;
+}
+
+.home__barbers__description {
+  grid-area: barbers_description;
+  align-self: end;
+  justify-self: center;
+  @extend %title-140;
+}

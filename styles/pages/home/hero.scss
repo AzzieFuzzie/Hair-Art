@@ -1,0 +1,54 @@
+.home {
+}
+
+.home__wrapper {
+  background-color: $color-white;
+}
+
+.home__hero {
+  padding: 8rem 4rem;
+}
+
+.home__hero__wrapper__1 {
+  display: flex;
+  justify-content: flex-start;
+  transform: translateX(8%);
+  max-width: 150rem;
+  margin: 2rem auto;
+
+  @include media("<phone") {
+    flex-direction: column;
+  }
+}
+
+.home__hero__title {
+  @extend %title-140;
+  @extend %center;
+  text-align: center;
+  text-transform: uppercase;
+  text-align: center;
+  // transform: translateX(-50%);
+}
+
+.home__hero__description {
+  @extend %description-32;
+
+  text-indent: 20%;
+}
+
+.home__hero__image {
+  grid-column: 4/5;
+  margin: 0 1.5rem;
+  max-width: 38rem;
+  text-align: center;
+}
+
+.home__hero__description__1 {
+  text-indent: 20%;
+}
+
+.line {
+  background-color: $color-west-coast;
+  height: 0.2rem;
+  width: 100%;
+}
