@@ -13,6 +13,16 @@
     ". title_2 ."
     ". description .";
   @extend %description-24;
+
+  @include media("<phone") {
+    grid-template-areas:
+      "title title"
+      "form form"
+      "list ."
+      "list_1 list_2"
+      "title_2 title_2"
+      "description description";
+  }
 }
 .home__footer__title {
   @extend %title-100;
@@ -49,6 +59,11 @@
 .home__footer__wrapper ul:nth-of-type(2) {
   grid-area: list_1;
   justify-self: center;
+  padding-left: 15rem;
+  @include media("<phone") {
+    padding-left: 0;
+    justify-self: start;
+  }
 }
 
 .home__footer__wrapper ul:nth-of-type(3) {

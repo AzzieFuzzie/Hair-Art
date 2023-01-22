@@ -14,6 +14,18 @@
     "line line line line line"
     "barbers_profile .  barbers_profile_1 . barbers_profile_2 "
     ". barbers_profile_3 . barbers_description barbers_description";
+
+  @include media("<phone") {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "barbers_title "
+      "line"
+      "barbers_profile"
+      "barbers_profile_1"
+      "barbers_profile_2"
+      "barbers_profile_3"
+      "barbers_description";
+  }
 }
 .home__barbers__title {
   @extend %title-140;

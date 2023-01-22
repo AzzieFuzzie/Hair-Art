@@ -1,23 +1,23 @@
-const path = require('path');
+const path = require("path");
 
-const webpack = require('webpack');
+const webpack = require("webpack");
 
-const CopyPlugin = require('copy-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
-const IS_DEVELOPMENT = process.env.NODE_ENV === 'dev';
+const IS_DEVELOPMENT = process.env.NODE_ENV === "dev";
 
-const dirApp = path.join(__dirname, 'app');
-const dirAssets = path.join(__dirname, 'assets');
-const dirShared = path.join(__dirname, 'shared');
-const dirStyles = path.join(__dirname, 'styles');
-const dirNode = 'node_modules';
+const dirApp = path.join(__dirname, "app");
+const dirAssets = path.join(__dirname, "assets");
+const dirShared = path.join(__dirname, "shared");
+const dirStyles = path.join(__dirname, "styles");
+const dirNode = "node_modules";
 
 module.exports = {
-  entry: [path.join(dirApp, 'index.js'), path.join(dirStyles, 'index.scss')],
+  entry: [path.join(dirApp, "index.js"), path.join(dirStyles, "index.scss")],
   experiments: {
     outputModule: true,
   },
@@ -33,24 +33,24 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         {
-          from: './shared',
-          to: '',
+          from: "./shared",
+          to: "",
         },
       ],
     }),
 
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: "[name].css",
     }),
 
     new ImageMinimizerPlugin({
       minimizerOptions: {
         plugins: [
           // interlaced: Interlace gif for progressive rendering.
-          ['gifsicle', { interlaced: true }],
+          ["gifsicle", { interlaced: true }],
 
           // progressive: Lossless conversion to progressive.
-          ['jpegtran', { progressive: true }],
+          ["jpegtran", { progressive: true }],
 
           // optimizationLevel (0-7): The optimization level 0 enables a set of
           // optimization operations that require minimal effort. There will be
@@ -58,7 +58,7 @@ module.exports = {
           // recompression of existing IDAT datastreams. The optimization level
           // 1 enables a single IDAT compression trial. The trial chosen is what
           //  OptiPNG thinks it’s probably the most effective.
-          ['optipng', { optimizationLevel: 8 }],
+          ["optipng", { optimizationLevel: 8 }],
         ],
       },
     }),
@@ -69,45 +69,50 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /app.js$/,
+        test: /\.js$/,
         // exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: [['@babel/preset-env', { targets: 'defaults' }]],
+            presets: [["@babel/preset-env", { targets: "defaults" }]],
           },
         },
       },
-
+      {
+        test: /\.m?js/,
+        resolve: {
+          fullySpecified: false,
+        },
+      },
       {
         test: /\.scss$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: '',
+              publicPath: "",
             },
           },
 
           {
-            loader: 'css-loader',
+            loader: "css-loader",
           },
 
           {
-            loader: 'postcss-loader',
+            loader: "postcss-loader",
           },
 
           {
-            loader: 'sass-loader',
+            loader: "sass-loader",
           },
         ],
       },
 
       {
         test: /\.(png|jpg|gif|jpe?g|svg|woff2?|fnt|webp|mp4)$/,
-        type: 'asset/resource',
+        type: "asset/resource",
         generator: {
-          filename: '[name].[hash].[ext]',
+          filename: "[name].[hash].[ext]",
         },
       },
 
@@ -122,13 +127,13 @@ module.exports = {
 
       {
         test: /\.(glsl|frag|vert)$/,
-        type: 'asset/source', // replaced raw-loader
+        type: "asset/source", // replaced raw-loader
         exclude: /node_modules/,
       },
 
       {
         test: /\.(glsl|frag|vert)$/,
-        loader: 'glslify-loader',
+        loader: "glslify-loader",
         exclude: /node_modules/,
       },
     ],
