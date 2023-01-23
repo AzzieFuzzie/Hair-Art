@@ -1,22 +1,25 @@
-@import './base/reset';
+@import "./base/reset";
 
-@import './utils/variables';
-@import './utils/functions';
-@import './utils/mixins';
-@import './utils/vendors';
-@import './utils/responsive';
+@import "./utils/variables";
+@import "./utils/functions";
+@import "./utils/mixins";
+@import "./utils/vendors";
+@import "./utils/responsive";
 
-@import './mixins/descriptions';
-@import './mixins/links';
-@import './mixins/titles';
+@import "./mixins/descriptions";
+@import "./mixins/links";
+@import "./mixins/titles";
 
-@import './base/fonts';
-@import './base/base';
+@import "./base/fonts";
+@import "./base/base";
 
-@import './pages/home/hero';
-@import './pages/home/gallery';
-@import './pages/home/barbers';
-@import './pages/home/products';
+@import "./pages/home/hero";
+@import "./pages/home/gallery";
+@import "./pages/home/barbers";
+@import "./pages/home/products";
+@import "./pages/treatments/treatments";
 
-@import './partials/navigation';
-@import './partials/footer';
+@import "./pages/about/about";
+
+@import "./partials/navigation";
+@import "./partials/footer";

@@ -29,6 +29,18 @@ const routes = [
     lang: "en-us",
     path: "/about",
   },
+  {
+    type: "contact",
+    uid: "contact",
+    lang: "en-us",
+    path: "/contact",
+  },
+  {
+    type: "treatments",
+    uid: "treatments",
+    lang: "en-us",
+    path: "/treatments",
+  },
 ];
 
 export const client = prismic.createClient(repoName, {

@@ -1,0 +1,37 @@
+extends ../base.pug
+
+block variables 
+    - var template = 'contact'
+    
+block content
+    .contact 
+        .contact_wrapper 
+            section.contact__hero
+                each section in contact.data.body
+                    if section.slice_type == "contact_hero"
+                        h2.contact__hero__title=section.primary.contact_title
+                        p.contact__hero__description=section.primary.contact_text
+                        img.contact__hero__image( src=section.primary.contact_image.url)
+                        p.contact__hero__description__1=section.primary.contact_text_1
+                .line
+            
+            section.contact__hero
+                each section in contact.data.body
+                    if section.slice_type == "contact_map"
+                    
+                        
+                        img.contact__hero__image( src=section.primary.contact_image_1.url)
+                        p.contact__hero__description=section.primary.contact_text
+                        
+                .line
+
+                section.contact__hero
+                each section in contact.data.body
+                    if section.slice_type == "contact"
+                    
+                        p.contact__hero__description=section.primary.contact_description_1
+                        img.contact__hero__image( src=section.primary.contact_image.url)
+                        p.contact__hero__description=section.primary.contact_description_2
+                        
+                        
+                .line

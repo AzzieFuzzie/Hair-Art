@@ -30,8 +30,42 @@ html(lang="en")
                 h2 Home 
                  
         #content.content(data-template=template)
-            block content
         
+        block content
+        
+        section.footer   
+                .footer__wrapper
+                    h3.footer__title=assets[8].subscribe_title
+                    .footer__form
+                        input.footer__input(type="text")
+                        button.footer__button Subscribe
+                    //- ul
+                    //-     li=assets[8].Treatments_title          
+                    //-     li=assets[8].Contact_title        
+                    //-     li=assets[8].About_title          
+                    //-     li=assets[8].Facebook_link          
+                    //-     li=assets[8].Instagram_link
+                    ul
+                        li Treatments         
+                        li About     
+                        li Contact    
+                        li Facebook      
+                        li Instagram                  
+                    ul 
+                        li=assets[8].text         
+                        li=assets[8].text_1        
+                        li=assets[8].text_2        
+                        li=assets[8].text_3         
+                        li=assets[8].text_4
+                    ul 
+                        li=assets[8].time             
+                        li=assets[8].time_1             
+                        li=assets[8].time_2            
+                        li=assets[8].time_3             
+                        li=assets[8].time_4 
+                    h1.footer__title__2 Hair Art By Khalifa 
+                    p.footer__description All rights reserved copyright @2023
+
         script(src="main.mjs" type="module")
 
     //- meta(property="og:type" content="website")

@@ -1,0 +1,94 @@
+.about {
+}
+.about_wrapper {
+}
+.about__hero {
+  padding: 8rem 4rem;
+  display: grid;
+  grid-template-columns: 30rem 1fr 30vw 1fr;
+  grid-template-areas:
+    ". title title img"
+    ". img_1 . img"
+    ". description description .";
+
+  gap: 1.5rem;
+}
+.about__hero__title {
+  @extend %title-140;
+  text-indent: 20%;
+  grid-area: title;
+}
+.about__hero__description {
+  text-indent: 20%;
+  grid-area: description;
+}
+.about__hero__image {
+  grid-area: img;
+  justify-self: end;
+}
+.about__hero__image__1 {
+  grid-area: img_1;
+  justify-self: center;
+}
+.line__about__hero {
+  @extend %line;
+  grid-area: line;
+  background-color: $color-vulcan;
+}
+.about__barbers {
+  background-color: $color-vulcan;
+  color: $color-white;
+  padding: 8rem 4rem;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-areas:
+    "img_2 description_1 img_3"
+    ". . img_3"
+    ". img_4 ."
+    "line_1 line_1 line_1";
+}
+.line__about__barbers {
+  @extend %line;
+  background-color: $color-white;
+  grid-area: line_1;
+}
+
+.about__barbers__description__1 {
+  grid-area: description_1;
+  @extend %description-32;
+}
+.about__barbers__image__2 {
+  grid-area: img_2;
+}
+.about__barbers__image__3 {
+  grid-area: img_3;
+}
+.about__barbers__image__4 {
+  grid-area: img_4;
+}
+
+.about__barbershop {
+  background-color: $color-vulcan;
+  color: $color-white;
+  padding: 8rem 4rem;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-areas:
+    "line line"
+    "description_2 img_5 "
+    ". img_5 "
+    ". description_3";
+}
+
+.about__barbershop__description__2 {
+  grid-area: description_2;
+  @extend %description-32;
+}
+.about__barbershop__image__5 {
+  grid-area: img_5;
+}
+.about__barbershop__description__3 {
+  grid-area: description_3;
+  @extend %description-32;
+  justify-self: start;
+}

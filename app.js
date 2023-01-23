@@ -25,6 +25,8 @@ app.use((req, res, next) => {
 const handleRequest = async () => {
   const home = await client.getSingle("home");
   const about = await client.getSingle("about");
+  const contact = await client.getSingle("contact");
+  const treatments = await client.getSingle("treatments");
   const footer = await client.getSingle("footer");
 
   const assets = [];
@@ -47,13 +49,43 @@ const handleRequest = async () => {
     }
   });
 
-  console.log(about.data.body);
+  treatments.data.body.forEach((section) => {
+    if (section.id === "treatments_$7baf9a49-82ed-407b-95ce-4118de7ce015") {
+      assets.push(section.items);
+
+      // console.log(section.items[0]);
+    } else if (
+      section.id === "treatments_$aa7490d8-3329-44f3-bb07-55b34ade9ab5"
+    ) {
+      assets.push(section.items);
+    } else if (
+      section.id === "treatments_$105d72bb-6ae1-4c4e-a614-4d4c6b54358d"
+    ) {
+      assets.push(section.items);
+    } else if (
+      section.id === "treatments_$6b099684-f9d6-432c-82e7-5db7b3fd88b5"
+    ) {
+      assets.push(section.items);
+    } else if (
+      section.id === "treatments_$5fc92f66-3a21-4dcc-996c-338951502e44"
+    ) {
+      assets.push(section.items);
+    } else if (
+      section.id === "treatments_$a5a83c4f-6aff-47cd-9a44-0aea3a103b9a"
+    ) {
+      assets.push(section.items);
+    }
+  });
 
   assets.push(footer.data);
+  // console.log(treatments.data.body);
   console.log(assets[8]);
 
   return {
     home,
+    about,
+    contact,
+    treatments,
     assets,
   };
 };
@@ -63,16 +95,19 @@ app.get("/", async (req, res) => {
   res.render("pages/home", { ...defaults });
 });
 
-app.get("/about", (req, res) => {
-  res.render("pages/about");
+app.get("/about", async (req, res) => {
+  const defaults = await handleRequest();
+  res.render("pages/about", { ...defaults });
 });
 
-app.get("/contact", (req, res) => {
-  res.render("pages/contact");
+app.get("/contact", async (req, res) => {
+  const defaults = await handleRequest();
+  res.render("pages/contact", { ...defaults });
 });
 
-app.get("/treatments", (req, res) => {
-  res.render("pages/treatments");
+app.get("/treatments", async (req, res) => {
+  const defaults = await handleRequest();
+  res.render("pages/treatments", { ...defaults });
 });
 
 app.listen(port, () => {

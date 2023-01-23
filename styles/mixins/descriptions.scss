@@ -16,6 +16,16 @@
   // }
 }
 
+%description-22 {
+  font-size: 2.2rem;
+  font-family: $font-montreal;
+  font-weight: medium;
+
+  // @include media('<phone') {
+  //   font-size: 3rem;
+  // }
+}
+
 %description-24 {
   font-size: 2.4rem;
   font-family: $font-montreal;
@@ -27,6 +37,7 @@
 }
 
 %description-32 {
+  font-family: $font-montreal;
   font-size: 3.2rem;
   line-height: 1;
   letter-spacing: 0;
