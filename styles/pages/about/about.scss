@@ -1,53 +1,78 @@
 .about {
+  @extend %page;
 }
 .about_wrapper {
 }
 .about__hero {
-  padding: 8rem 4rem;
+  padding: 15rem 4rem;
   display: grid;
   grid-template-columns: 30rem 1fr 30vw 1fr;
   grid-template-areas:
     ". title title img"
-    ". img_1 . img"
+    ". . img_1  img"
     ". description description .";
 
   gap: 1.5rem;
+
+  @include media("<phone") {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "title  img"
+      " img_1  img"
+      "description description ";
+  }
 }
 .about__hero__title {
   @extend %title-140;
   text-indent: 20%;
   grid-area: title;
+  justify-self: end;
+  text-align: right;
 }
 .about__hero__description {
   text-indent: 20%;
   grid-area: description;
+  justify-self: end;
 }
 .about__hero__image {
   grid-area: img;
-  justify-self: end;
+  justify-self: start;
 }
 .about__hero__image__1 {
   grid-area: img_1;
-  justify-self: center;
+  justify-self: start;
 }
-.line__about__hero {
+.line__about__barbers {
   @extend %line;
   grid-area: line;
-  background-color: $color-vulcan;
+  background-color: $color-white;
 }
 .about__barbers {
   background-color: $color-vulcan;
   color: $color-white;
-  padding: 8rem 4rem;
+  padding: 15rem 4rem;
   display: grid;
+  grid-template-columns: repeat(5, 1fr);
   gap: 1.5rem;
   grid-template-areas:
-    "img_2 description_1 img_3"
-    ". . img_3"
-    ". img_4 ."
-    "line_1 line_1 line_1";
+    "line line line line line"
+    "img_2 description_1 description_1  . img_3"
+    ".  . . . img_3 "
+    ". img_4 . . .";
+
+  @include media("<phone") {
+    grid-template-areas:
+      "line "
+      " img_2"
+      "description_1  "
+      "img_3";
+
+    .about__barbers__image__4 {
+      display: none;
+    }
+  }
 }
-.line__about__barbers {
+.line__about__barbershop {
   @extend %line;
   background-color: $color-white;
   grid-area: line_1;
@@ -70,14 +95,22 @@
 .about__barbershop {
   background-color: $color-vulcan;
   color: $color-white;
-  padding: 8rem 4rem;
+  padding: 15rem 4rem;
   display: grid;
   gap: 1.5rem;
   grid-template-areas:
-    "line line"
+    "line_1 line_1"
     "description_2 img_5 "
     ". img_5 "
     ". description_3";
+
+  @include media("<phone") {
+    grid-template-areas:
+      "line_1"
+      "description_2"
+      " img_5 "
+      "description_3";
+  }
 }
 
 .about__barbershop__description__2 {
@@ -86,9 +119,11 @@
 }
 .about__barbershop__image__5 {
   grid-area: img_5;
+  justify-self: end;
+  width: 100%;
 }
 .about__barbershop__description__3 {
   grid-area: description_3;
   @extend %description-32;
-  justify-self: start;
+  justify-self: end;
 }

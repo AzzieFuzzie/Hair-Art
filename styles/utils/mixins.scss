@@ -1,7 +1,7 @@
 %cover {
   height: 100%;
   left: 0;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
 }
@@ -20,11 +20,17 @@
 }
 
 %input {
+  @extend %description-22;
   border-top-style: hidden;
   border-right-style: hidden;
   border-left-style: hidden;
   border-bottom-style: groove;
-  background-color: rgb(126, 1, 1);
+  background-color: transparent;
+  color: $color-white;
+  font-family: $font-montreal;
+  width: 100%;
+  min-height: 5rem;
+  margin-right: 1.5rem;
 }
 
 %no-outline:focus {

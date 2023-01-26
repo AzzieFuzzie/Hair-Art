@@ -6,11 +6,13 @@
 @import "./utils/vendors";
 @import "./utils/responsive";
 
-@import "./mixins/descriptions";
-@import "./mixins/links";
-@import "./mixins/titles";
+@import "./shared/pages";
+@import "./shared/descriptions";
+@import "./shared/links";
+@import "./shared/titles";
 
 @import "./base/fonts";
+
 @import "./base/base";
 
 @import "./pages/home/hero";
@@ -18,6 +20,7 @@
 @import "./pages/home/barbers";
 @import "./pages/home/products";
 @import "./pages/treatments/treatments";
+@import "./pages/contact/contact";
 
 @import "./pages/about/about";
 

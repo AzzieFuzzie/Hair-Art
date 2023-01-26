@@ -1,7 +1,54 @@
-.navigation {
+.navigation__wrapper {
   padding: 3rem 4rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background-color: $color-vulcan;
+  color: $color-white;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  grid-template-areas:
+    "img . navigation img_1 ."
+    ". text_1 . text_2 text_2";
+
+  @include media("<phone") {
+    grid-template-areas:
+      " navigation navigation"
+      "text_1 img"
+      "text_2 text_2";
+  }
 }
-.navigation.wrapper {
+
+nav.navigation {
+  @extend %title-130;
+}
+
+.navigation__images {
+}
+.navigation__image {
+  grid-area: img;
+}
+.navigation__image__1 {
+  grid-area: img_1;
+}
+.navigation {
+  grid-area: navigation;
+  justify-self: center;
+}
+.navigation__link {
+}
+.navigation__list {
+}
+.navigation__list__item {
+}
+.nav__booking_text {
+  @extend %description-22;
+  grid-area: text_1;
+}
+.nav__time__wrapper {
+  @extend %description-22;
+  grid-area: text_2;
   display: flex;
-  justify-content: space-between;
+  column-gap: 1.5rem;
+  justify-self: center;
 }

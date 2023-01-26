@@ -5,6 +5,8 @@ import * as prismicH from "@prismicio/helpers";
 import { client } from "./config/prismicConfig.js";
 import bodyParser from "body-parser";
 
+// import { forEach } from "lodash";
+
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 4000;
@@ -52,14 +54,12 @@ const handleRequest = async () => {
   treatments.data.body.forEach((section) => {
     if (section.id === "treatments_$7baf9a49-82ed-407b-95ce-4118de7ce015") {
       assets.push(section.items);
-
-      // console.log(section.items[0]);
     } else if (
       section.id === "treatments_$aa7490d8-3329-44f3-bb07-55b34ade9ab5"
     ) {
       assets.push(section.items);
     } else if (
-      section.id === "treatments_$105d72bb-6ae1-4c4e-a614-4d4c6b54358d"
+      section.id === "treatments_$aa7490d8-3329-44f3-bb07-55b34ade9ab5"
     ) {
       assets.push(section.items);
     } else if (
@@ -77,15 +77,12 @@ const handleRequest = async () => {
     }
   });
 
-  assets.push(footer.data);
-  // console.log(treatments.data.body);
-  console.log(assets[8]);
-
   return {
     home,
     about,
     contact,
     treatments,
+    footer,
     assets,
   };
 };
@@ -108,6 +105,11 @@ app.get("/contact", async (req, res) => {
 app.get("/treatments", async (req, res) => {
   const defaults = await handleRequest();
   res.render("pages/treatments", { ...defaults });
+});
+
+app.get("/navigation", async (req, res) => {
+  const defaults = await handleRequest();
+  res.render("navigation", { ...defaults });
 });
 
 app.listen(port, () => {

@@ -1,0 +1,95 @@
+.contact {
+}
+.contact_wrapper {
+}
+.contact__hero {
+  display: grid;
+  grid-template-areas:
+    "img title . . description"
+    "img line_1 line_1 line_1 line_1"
+    "img text text_1 text_1 text_1"
+    "img text_3 text_4 . .";
+  padding: 15rem 4rem;
+  gap: 1.5rem;
+  background-color: $color-vulcan;
+  color: $color-white;
+  @include media("<phone") {
+    grid-template-areas:
+      "img"
+      "title "
+      "line_1"
+      "text"
+      "text_1"
+      "text_3"
+      "text_4"
+      "description";
+  }
+}
+.contact__hero__title {
+  @extend %title-140;
+  grid-area: title;
+  padding-bottom: 15rem;
+}
+.contact__hero__image {
+  grid-area: img;
+  margin-right: 10rem;
+}
+
+.contact__hero__text {
+  grid-area: text;
+}
+.contact__hero__text__1 {
+  grid-area: text_1;
+}
+.contact__hero__text__2 {
+  grid-area: text_2;
+}
+.contact__hero__text__3 {
+  grid-area: text_3;
+}
+.contact__hero__text__4 {
+  grid-area: text_4;
+}
+
+.contact__hero__description {
+  grid-area: description;
+}
+
+.contact__map {
+  display: grid;
+  grid-template-columns: 30vw 1fr;
+  grid-template-areas:
+    " . img_1"
+    "description_1 . ";
+  gap: 1.5rem;
+  padding: 15rem 4rem;
+
+  @include media("<phone") {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "description_1"
+      "img_1";
+
+    .contact__map__image__1 {
+      grid-area: img_1;
+      justify-self: center;
+    }
+    .contact__map__description__1 {
+      grid-area: description_1;
+      align-self: center;
+    }
+  }
+}
+.contact__map__image__1 {
+  grid-area: img_1;
+  justify-self: end;
+}
+.contact__map__description__1 {
+  grid-area: description_1;
+  align-self: end;
+}
+.line__contact {
+  @extend %line;
+  background-color: $color-white;
+  grid-area: line_1;
+}

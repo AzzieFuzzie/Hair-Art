@@ -1,6 +1,6 @@
 .home__barbers {
   background-color: $color-vulcan;
-  padding: 8rem 4rem;
+  padding: 15rem 4rem;
 }
 .home__barbers__wrapper {
   @extend %description-20;
@@ -49,6 +49,11 @@
 
 .frame p {
   text-indent: 10%;
+}
+
+.home__barbers__image {
+  min-width: 100%;
+  height: 34rem;
 }
 
 .home__barbers__profile {

@@ -4,8 +4,8 @@ block variables
     - var template = 'about'
     
 block content
-    .about 
-        .about_wrapper 
+    .about
+        .about__wrapper 
             section.about__hero
                 each section in about.data.body
                     if section.slice_type == "about_hero"
@@ -13,9 +13,10 @@ block content
                         img.about__hero__image( src=section.primary.about_image.url)
                         img.about__hero__image__1( src=section.primary.about_image_1.url)
                         p.about__hero__description=section.primary.about_description
-                .line__about__hero
+                
             
             section.about__barbers
+                .line__about__barbers
                 each section in about.data.body
                     if section.slice_type == "about_"
                     
@@ -23,9 +24,10 @@ block content
                         img.about__barbers__image__2( src=section.primary.about_image_2.url)
                         img.about__barbers__image__3( src=section.primary.about_image_3.url)
                         img.about__barbers__image__4( src=section.primary.about_image_4.url)
-                .line__about__barbers
+               
 
             section.about__barbershop
+                .line__about__barbershop
                 each section in about.data.body
                     if section.slice_type == "about"
                     

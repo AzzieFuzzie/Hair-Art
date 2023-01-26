@@ -1,4 +1,5 @@
 import GSAP from "gsap";
+import Prefix from "prefix";
 
 import each from "lodash/each";
 
@@ -10,11 +11,31 @@ export default class Page {
     };
 
     this.id = id;
+
+    this.transformPrefix = Prefix("transform");
+
+    this.onMouseWheelEvent = this.onMouseWheel.bind(this);
+
+    // this.onMouseWheel();
+    // this.onResize();
+    // this.update();
+    // this.addEventListeners();
+    // this.removeEventListeners();
+
+    // this.removeEventListeners();
   }
 
   create() {
     this.element = document.querySelector(this.selector);
+    console.log(this.element);
     this.elements = {};
+
+    this.scroll = {
+      current: 0,
+      target: 0,
+      last: 0,
+      limit: 0,
+    };
 
     each(this.selectorChildren, (entry, key) => {
       if (
@@ -37,19 +58,82 @@ export default class Page {
 
   show() {
     return new Promise((resolve) => {
-      GSAP.from(this.element, {
-        autoAlpha: 0,
-        onComplete: resolve,
+      this.animationIn = GSAP.timeline();
+
+      this.animationIn.fromTo(
+        this.element,
+        {
+          autoAlpha: 0,
+        },
+        {
+          autoAlpha: 1,
+        }
+      );
+
+      this.animationIn.call((_) => {
+        this.addEventListeners();
+        console.log("hello1");
+        resolve();
       });
     });
   }
 
   hide() {
     return new Promise((resolve) => {
-      GSAP.to(this.element, {
+      this.removeEventListeners();
+
+      this.animationIn = GSAP.timeline();
+
+      this.animationIn.to(this.element, {
         autoAlpha: 0,
         onComplete: resolve,
       });
     });
+  }
+
+  onMouseWheel(e) {
+    const { deltaY } = e;
+    console.log(deltaY);
+    this.scroll.target += deltaY;
+  }
+
+  onResize() {
+    if (this.elements.wrapper) {
+      this.scroll.limit =
+        this.elements.wrapper.clientHeight - window.innerHeight;
+    }
+  }
+
+  update() {
+    this.scroll.target = GSAP.utils.clamp(
+      0,
+      this.scroll.limit,
+      this.scroll.target
+    );
+
+    this.scroll.current = GSAP.utils.interpolate(
+      this.scroll.current,
+      this.scroll.target,
+      0.1
+    );
+
+    if (this.scroll.current < 0.01) {
+      this.scroll.current = 0;
+    }
+
+    if (this.elements.wrapper) {
+      this.elements.wrapper.style[
+        this.transformPrefix
+      ] = `translateY(-${this.scroll.current}px)`;
+    }
+  }
+
+  addEventListeners() {
+    window.addEventListener("mousewheel", this.onMouseWheelEvent);
+    console.log("hello");
+  }
+
+  removeEventListeners() {
+    window.removeEventListener("mousewheel", this.onMouseWheelEvent);
   }
 }

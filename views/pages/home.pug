@@ -14,6 +14,7 @@ block content
                             p.home__hero__description=section.primary.description
                             img.home__hero__image(alt=section.primary.image.alt src=section.primary.image.url)
                             p.home__hero__description__1=section.primary.description_1
+                            p.home__hero__description__mobile=section.primary.hero_description_mobile
                 .line
 
                 section.home__gallery 
@@ -42,21 +43,21 @@ block content
                                 .home__barbers__profile__title
                                     h2.home__barbers__name__1= assets[1].barber_name
                                     span 02
-                                img.home__barbers__image__1(src=assets[1].barber_image.url)
+                                img.home__barbers__image(src=assets[1].barber_image.url)
                                 p.home__barbers__name__description__1=assets[1].barber_description
 
                             .home__barbers__profile__2.frame
                                 .home__barbers__profile__title
                                     h2.home__barbers__name__2= assets[2].barber_name
                                     span 03
-                                img.home__barbers__image__2(src=assets[2].barber_image.url)
+                                img.home__barbers__image(src=assets[2].barber_image.url)
                                 p.home__barbers__name__description__2=assets[2].barber_description
 
                             .home__barbers__profile__3.frame
                                 .home__barbers__profile__title
                                     h2.home__barbers__name__3= assets[3].barber_name
                                     span 04
-                                img.home__barbers__image__3(src=assets[3].barber_image.url)
+                                img.home__barbers__image(src=assets[3].barber_image.url)
                                 p.home__barbers__name__description__3=assets[3].barber_description
 
                             p.home__barbers__description=section.primary.description_barbers

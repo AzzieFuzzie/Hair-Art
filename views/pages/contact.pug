@@ -4,34 +4,29 @@ block variables
     - var template = 'contact'
     
 block content
-    .contact 
-        .contact_wrapper 
+    .contact
+        .contact__wrapper 
             section.contact__hero
                 each section in contact.data.body
                     if section.slice_type == "contact_hero"
                         h2.contact__hero__title=section.primary.contact_title
-                        p.contact__hero__description=section.primary.contact_text
                         img.contact__hero__image( src=section.primary.contact_image.url)
-                        p.contact__hero__description__1=section.primary.contact_text_1
-                .line
+                        .line__contact
+                        p.contact__hero__description=section.primary.contact_description
+                        p.contact__hero__text=section.primary.contact_text
+                        p.contact__hero__text__1=section.primary.contact_text_1
+                        p.contact__hero__text__2=section.primary.contact_text_2
+                        p.contact__hero__text__3=section.primary.contact_text_3
+                        p.contact__hero__text__4=section.primary.contact_text_4
+              
             
-            section.contact__hero
+            section.contact__map
                 each section in contact.data.body
-                    if section.slice_type == "contact_map"
-                    
+                    if section.slice_type == "contact_map"  
+                        img.contact__map__image__1( src=section.primary.contact_image_1.url)
+                        p.contact__map__description__1=section.primary.contact_description_1
                         
-                        img.contact__hero__image( src=section.primary.contact_image_1.url)
-                        p.contact__hero__description=section.primary.contact_text
-                        
-                .line
-
-                section.contact__hero
-                each section in contact.data.body
-                    if section.slice_type == "contact"
-                    
-                        p.contact__hero__description=section.primary.contact_description_1
-                        img.contact__hero__image( src=section.primary.contact_image.url)
-                        p.contact__hero__description=section.primary.contact_description_2
+             
                         
                         
-                .line
+        

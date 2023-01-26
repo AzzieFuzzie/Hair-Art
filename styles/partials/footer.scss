@@ -1,14 +1,18 @@
 .footer {
-  padding: 8rem 4rem;
+  padding: 8rem 30rem;
   background-color: $color-vulcan;
   color: $color-white;
+
+  @include media("<phone") {
+    padding: 8rem 4rem;
+  }
 }
 .footer__wrapper {
   display: grid;
-  gap: 1.5rem;
+  column-gap: 1.5rem;
   grid-template-areas:
     ". title ."
-    ". form ."
+    "form form form"
     "list list_1 list_2"
     ". title_2 ."
     ". description .";
@@ -28,13 +32,18 @@
   @extend %title-100;
   grid-area: title;
   text-align: center;
-  //   text-indent: 10%;
+  text-indent: 30%;
+  padding-bottom: 10rem;
+  padding-right: 15rem;
+  justify-self: center;
 }
 
 .footer__form {
+  display: flex;
   grid-area: form;
-  justify-self: center;
-  align-self: baseline;
+  justify-content: flex-start;
+  align-items: flex-end;
+  // align-self: center;
 }
 
 .footer__input {
@@ -53,10 +62,13 @@
 }
 
 .footer__wrapper ul:nth-of-type(1) {
+  margin: 5rem 0;
   grid-area: list;
+  // justify-self: end;
 }
 
 .footer__wrapper ul:nth-of-type(2) {
+  margin: 5rem 0;
   grid-area: list_1;
   justify-self: center;
   padding-left: 15rem;
@@ -67,6 +79,7 @@
 }
 
 .footer__wrapper ul:nth-of-type(3) {
+  margin: 5rem 0;
   grid-area: list_2;
   justify-self: end;
 }
@@ -78,6 +91,7 @@
 }
 
 .footer__description {
+  @extend %description-12;
   grid-area: description;
   text-align: center;
 }

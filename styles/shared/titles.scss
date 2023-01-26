@@ -34,6 +34,15 @@
   //   }
 }
 
+%title-130 {
+  font-family: $font-world;
+  font-size: 10rem;
+
+  //   @include media('<phone') {
+  //     font-size: 6rem;
+  //   }
+}
+
 %title-140 {
   font-family: $font-world;
   font-size: 14rem;

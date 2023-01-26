@@ -1,3 +1,8 @@
+.treatments__wrapper {
+  padding: 15rem 4rem;
+  background-color: $color-vulcan;
+  color: $color-white;
+}
 .treatments__wash,
 .treatments__beard,
 .treatments__facial,
@@ -15,26 +20,38 @@
   margin: auto;
 }
 
+.treatments__title {
+  @extend %title-140;
+}
+
+.treatments__title__wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.treatments__image__wrapper {
+}
+
 .treatments__row {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  align-content: normal;
+  align-content: center;
 }
 
 .treatments__col {
-  flex-basis: 45%;
+  flex-basis: 47%;
 }
 
 .line__treatments {
   @extend %line;
 
-  background-color: $color-vulcan;
+  background-color: $color-white;
 }
 
 .line__price {
   @extend %line;
-  background-color: $color-vulcan;
+  background-color: $color-white;
 }

@@ -1,65 +1,100 @@
-// import each from "lodash/each";
+import each from "lodash/each";
 
-// import Home from "pages/Home/index.js";
+import Home from "pages/Home/index.js";
+import About from "pages/About/index.js";
+import Contact from "pages/Contact/index.js";
 
-// class App {
-//   constructor() {
-//     this.createContent();
-//     this.createPages();
-//     this.addLinkListeners();
-//   }
+class App {
+  constructor() {
+    this.createContent();
+    this.createPages();
 
-//   createContent() {
-//     this.content = document.querySelector(".content");
-//     this.template = this.content.getAttribute("data-template");
-//   }
+    this.onResize();
 
-//   createPages() {
-//     this.pages = {
-//       home: new Home(),
-//     };
+    this.addEventListeners();
+    this.update();
+  }
 
-//     this.page = this.pages[this.template];
-//     this.page.create();
-//     this.page.show();
-//   }
+  createContent() {
+    this.content = document.querySelector(".content");
+    this.template = this.content.getAttribute("data-template");
+  }
 
-//   async onChange(url) {
-//     await this.page.hide();
+  createPages() {
+    this.pages = {
+      home: new Home(),
+      about: new About(),
+      contact: new Contact(),
+    };
 
-//     const res = await window.fetch(url);
-//     if (res.status === 200) {
-//       const html = await res.text();
+    this.page = this.pages[this.template];
+    this.page.create();
+    this.page.show();
+  }
 
-//       const div = document.createElement("div");
-//       div.innerHTML = html;
+  async onChange(url) {
+    await this.page.hide();
 
-//       const divContent = div.querySelector(".content");
-//       this.content.innerHTML = divContent.innerHTML;
+    const res = await window.fetch(url);
+    if (res.status === 200) {
+      const html = await res.text();
 
-//       this.template = divContent.getAttribute("data-template");
-//       this.content.setAttribute("data-template", this.template);
+      const div = document.createElement("div");
+      div.innerHTML = html;
 
-//       this.page = this.pages[this.template];
-//       this.page.create();
-//       this.page.show();
-//     } else {
-//       console.error(`response status: ${res.status}`);
-//     }
-//   }
+      const divContent = div.querySelector(".content");
+      this.content.innerHTML = divContent.innerHTML;
 
-//   addLinkListeners() {
-//     const links = document.querySelectorAll("a");
+      this.template = divContent.getAttribute("data-template");
+      this.content.setAttribute("data-template", this.template);
 
-//     each(links, (link) => {
-//       link.onclick = (event) => {
-//         event.preventDefault();
+      this.page = this.pages[this.template];
+      this.page.create();
+      this.page.show();
+    } else {
+      console.error(`response status: ${res.status}`);
+    }
+  }
 
-//         const { href } = link;
-//         this.onChange(href);
-//       };
-//     });
-//   }
-// }
+  onResize() {
+    if (this.page && this.page.onResize) {
+      this.page.onResize();
+    }
+  }
 
-// new App();
+  /*
+   *  Loop
+   */
+
+  update() {
+    if (this.page && this.page.update) {
+      this.page.update();
+    }
+
+    this.frame = window.requestAnimationFrame(this.update.bind(this));
+  }
+
+  /*
+   * Listeners
+   */
+
+  addEventListeners() {
+    window.addEventListener("resize", this.onResize.bind(this));
+  }
+
+  addLinkListeners() {
+    const links = document.querySelectorAll("a");
+
+    each(links, (link) => {
+      link.onclick = (event) => {
+        event.preventDefault();
+
+        const { href } = link;
+        console.log(href);
+        this.onChange(href);
+      };
+    });
+  }
+}
+
+new App();

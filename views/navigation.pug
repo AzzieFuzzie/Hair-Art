@@ -1,0 +1,45 @@
+extends ./base
+
+block variables 
+    - var template = 'navigation'
+    
+block content
+    .navigation__wrapper
+        section.navigation__bar 
+                .navigation__bar__wrapper
+                    h1 Hair Art
+                    h2 Home 
+        each section in about.data.body
+            if section.slice_type == "about_hero"
+                img.navigation__image( src=section.primary.about_image.url)
+                img.navigation__image__1( src=section.primary.about_image_1.url)
+        nav.navigation
+            ul.navigation__list
+                li.navigation__list__item
+                    a.navigation__list__link(href="./treatments")
+                        span Booking
+                li.navigation__list__item
+                    a.navigation__list__link(href="./treatments")
+                        span Treatments
+                li.navigation__list__item
+                    a.navigation__list__link(href="./treatments")
+                        span About
+                li.navigation__list__item
+                    a.navigation__list__link(href="./treatments")
+                        span Contact
+        
+        p.nav__booking_text Bookings can only be made for home services at the moment.                 
+        .nav__time__wrapper 
+            ul 
+                li=footer.data.text         
+                li=footer.data.text_1        
+                li=footer.data.text_2        
+                li=footer.data.text_3         
+                li=footer.data.text_4
+            ul 
+                li=footer.data.time             
+                li=footer.data.time_1             
+                li=footer.data.time_2            
+                li=footer.data.time_3             
+                li=footer.data.time_4 
+            
