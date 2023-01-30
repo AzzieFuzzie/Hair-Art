@@ -5,8 +5,6 @@ export default class Animation extends Component {
     super({ element, elements });
 
     // this.createObserver;
-
-    this.animateOut();
   }
 
   // createObserver() {

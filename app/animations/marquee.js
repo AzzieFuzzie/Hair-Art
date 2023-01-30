@@ -14,7 +14,7 @@ export default class Marquee extends Animation {
     GSAP.to(this.element, {
       autoAlpha: 1,
       duration: 5,
-      delay: 5,
+      delay: 2,
     });
   }
 
