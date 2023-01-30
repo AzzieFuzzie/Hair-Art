@@ -36,6 +36,7 @@ class App {
     await this.page.hide();
 
     const res = await window.fetch(url);
+
     if (res.status === 200) {
       const html = await res.text();
 

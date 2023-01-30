@@ -1,11 +1,12 @@
-extends ../base
+extends base
 
 block variables 
     - var template = 'about'
-    
+
 block content
     .about
         .about__wrapper 
+            include navigation
             section.about__hero
                 each section in about.data.body
                     if section.slice_type == "about_hero"
@@ -35,5 +36,4 @@ block content
                         img.about__barbershop__image__5( src=section.primary.about_image.url)
                         p.about__barbershop__description__3=section.primary.about_description_2
                         
-                        
-                
+            include footer

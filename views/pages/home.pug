@@ -1,4 +1,4 @@
-extends ../base 
+extends base
 
 block variables 
     - var template = 'home'
@@ -6,14 +6,15 @@ block variables
 block content
     .home
         .home__wrapper
+            include navigation
             section.home__hero
                 each section in home.data.body
                     if section.slice_type == "hero"
                         h2.home__hero__title=section.primary.title
                         .home__hero__wrapper__1
-                            p.home__hero__description=section.primary.description
-                            img.home__hero__image(alt=section.primary.image.alt src=section.primary.image.url)
-                            p.home__hero__description__1=section.primary.description_1
+                            p.home__hero__description(data-animation="gallery")=section.primary.description
+                            img.home__hero__image( alt=section.primary.image.alt src=section.primary.image.url)
+                            p.home__hero__description__1(data-animation="gallery")=section.primary.description_1
                             p.home__hero__description__mobile=section.primary.hero_description_mobile
                 .line
 
@@ -76,6 +77,6 @@ block content
                             img.home__products__image__2( src=section.primary.product_image_2.url)
                             p.home__products__description__1=section.primary.products_description_1
 
-                        
+            include footer        
 
  

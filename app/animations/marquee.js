@@ -1,26 +1,25 @@
 import GSAP from "gsap";
-import Animation from "classes/Animation";
+import Animation from "../classes/Animation";
 
-export default class Highlight extends Animation {
+export default class Marquee extends Animation {
   constructor({ element, elements }) {
     super({ element, elements });
+
+    this.animateIn();
+    this.animateOut();
   }
 
   animateIn() {
-    GSAP.fromTo(
-      this.element,
-      {
-        autoAlpha: 0,
-        delay: 0.5,
-      },
-      {
-        autoAlpha: 1,
-        duration: 1,
-      }
-    );
+    console.log(this.element);
+    GSAP.to(this.element, {
+      autoAlpha: 1,
+      duration: 5,
+      delay: 5,
+    });
   }
 
   animateOut() {
+    console.log(this.element);
     GSAP.set(this.element, {
       autoAlpha: 0,
     });

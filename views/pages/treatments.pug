@@ -1,9 +1,10 @@
-extends ../base 
+extends base
+    
 
 block variables 
     - var template = 'treatments'
     
-block content(data-scroll-container)
+
     .treatments
         .treatments__wrapper
             .treatments__title__wrapper
@@ -198,5 +199,5 @@ block content(data-scroll-container)
             //-             p.treatments__beard__text=assets[10][12].service
             //-             p.treatments__beard__price=assets[10][12].price
             //-         .line__treatments
-                    
+            include footer           
                         

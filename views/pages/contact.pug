@@ -1,4 +1,4 @@
-extends ../base.pug
+extends base
 
 block variables 
     - var template = 'contact'
@@ -6,6 +6,7 @@ block variables
 block content
     .contact
         .contact__wrapper 
+            include navigation
             section.contact__hero
                 each section in contact.data.body
                     if section.slice_type == "contact_hero"
@@ -25,7 +26,7 @@ block content
                     if section.slice_type == "contact_map"  
                         img.contact__map__image__1( src=section.primary.contact_image_1.url)
                         p.contact__map__description__1=section.primary.contact_description_1
-                        
+            include footer           
              
                         
                         

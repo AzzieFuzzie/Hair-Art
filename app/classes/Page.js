@@ -2,12 +2,16 @@ import GSAP from "gsap";
 import Prefix from "prefix";
 
 import each from "lodash/each";
+import map from "lodash/map";
+
+import Marquee from "../animations/marquee";
 
 export default class Page {
   constructor({ element, elements, id }) {
     this.selector = element;
     this.selectorChildren = {
       ...elements,
+      animationGallery: '[data-animation="gallery"]',
     };
 
     this.id = id;
@@ -15,19 +19,11 @@ export default class Page {
     this.transformPrefix = Prefix("transform");
 
     this.onMouseWheelEvent = this.onMouseWheel.bind(this);
-
-    // this.onMouseWheel();
-    // this.onResize();
-    // this.update();
-    // this.addEventListeners();
-    // this.removeEventListeners();
-
-    // this.removeEventListeners();
   }
 
   create() {
     this.element = document.querySelector(this.selector);
-    console.log(this.element);
+
     this.elements = {};
 
     this.scroll = {
@@ -54,6 +50,17 @@ export default class Page {
         }
       }
     });
+    this.createAnimations();
+  }
+
+  createAnimations() {
+    console.log(this.elements.animationGallery);
+    this.animationGallery = map(this.elements.animationGallery, (element) => {
+      return new Marquee({
+        element,
+      });
+    });
+    console.log(this.animationGallery);
   }
 
   show() {
@@ -72,7 +79,7 @@ export default class Page {
 
       this.animationIn.call((_) => {
         this.addEventListeners();
-        console.log("hello1");
+
         resolve();
       });
     });

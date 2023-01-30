@@ -12,7 +12,7 @@ export default class Contact extends Page {
     });
   }
 
-  // create() {
-  //   super.create();
-  // }
+  create() {
+    super.create();
+  }
 }
