@@ -12,16 +12,18 @@ export default class Marquee extends Animation {
   animateIn() {
     console.log(this.element);
     GSAP.to(this.element, {
-      autoAlpha: 1,
-      duration: 5,
-      delay: 2,
+      x: this.element.parentElement.clientWidth * -1,
+      duration: 10,
+      // delay: 2,
+      ease: "linear",
+      repeat: -1,
     });
   }
 
   animateOut() {
     console.log(this.element);
     GSAP.set(this.element, {
-      autoAlpha: 0,
+      x: 0,
     });
   }
 }

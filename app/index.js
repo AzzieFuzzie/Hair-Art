@@ -1,4 +1,5 @@
 import each from "lodash/each";
+import Canvas from "components/Canvas/index.js";
 
 import Home from "pages/Home/index.js";
 import About from "pages/About/index.js";
@@ -7,6 +8,8 @@ import Contact from "pages/Contact/index.js";
 class App {
   constructor() {
     this.createContent();
+
+    this.createCanvas();
     this.createPages();
 
     this.onResize();
@@ -20,6 +23,9 @@ class App {
     this.template = this.content.getAttribute("data-template");
   }
 
+  createCanvas() {
+    this.canvas = new Canvas();
+  }
   createPages() {
     this.pages = {
       home: new Home(),
