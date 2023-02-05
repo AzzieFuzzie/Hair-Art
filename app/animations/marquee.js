@@ -4,9 +4,6 @@ import Animation from "../classes/Animation";
 export default class Marquee extends Animation {
   constructor({ element, elements }) {
     super({ element, elements });
-
-    this.animateIn();
-    this.animateOut();
   }
 
   animateIn() {

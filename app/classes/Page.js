@@ -5,6 +5,7 @@ import each from "lodash/each";
 import map from "lodash/map";
 
 import Marquee from "../animations/marquee";
+import Navigation from "../animations/Navigation";
 
 export default class Page {
   constructor({ element, elements, id }) {
@@ -12,6 +13,7 @@ export default class Page {
     this.selectorChildren = {
       ...elements,
       animationGallery: '[data-animation="gallery"]',
+      navigation: '[data-animation="navigation"]',
     };
 
     this.id = id;
@@ -50,17 +52,17 @@ export default class Page {
         }
       }
     });
-    // this.createAnimations();
+    this.createAnimations();
   }
 
   createAnimations() {
-    console.log(this.elements.animationGallery);
     this.animationGallery = map(this.elements.animationGallery, (element) => {
       return new Marquee({
         element,
       });
     });
-    console.log(this.animationGallery);
+
+    this.navigation = new Navigation();
   }
 
   show() {
@@ -100,7 +102,7 @@ export default class Page {
 
   onMouseWheel(e) {
     const { deltaY } = e;
-    console.log(deltaY);
+
     this.scroll.target += deltaY;
   }
 
@@ -137,7 +139,6 @@ export default class Page {
 
   addEventListeners() {
     window.addEventListener("mousewheel", this.onMouseWheelEvent);
-    console.log("hello");
   }
 
   removeEventListeners() {

@@ -5,6 +5,8 @@ export default class Animation extends Component {
     super({ element, elements });
 
     // this.createObserver;
+    this.animateIn();
+    this.animateOut();
   }
 
   // createObserver() {
@@ -18,7 +20,7 @@ export default class Animation extends Component {
   //     });
   //   }).observe(this.target);
   // }
-
+  navigation() {}
   animateIn() {}
   animateOut() {}
 }

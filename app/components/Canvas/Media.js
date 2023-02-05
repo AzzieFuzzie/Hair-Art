@@ -1,6 +1,7 @@
 import { Mesh, Program, Texture } from "ogl";
 import fragment from "shaders/fragment.glsl";
 import vertex from "shaders/vertex.glsl";
+import map from "lodash/map";
 
 export default class {
   constructor({
@@ -12,9 +13,11 @@ export default class {
     renderer,
     scene,
     screen,
-    text,
+
     viewport,
   }) {
+    this.extra = 0;
+
     this.geometry = geometry;
     this.gl = gl;
     this.image = image;
@@ -27,7 +30,7 @@ export default class {
 
     this.createShader();
     this.createMesh();
-
+    // this.update();
     this.onResize();
   }
 
@@ -51,6 +54,7 @@ export default class {
     const image = new Image();
 
     image.src = this.image.src;
+    image.crossOrigin = "anonymous";
     image.onload = (_) => {
       texture.image = image;
 
@@ -64,10 +68,37 @@ export default class {
   createMesh() {
     this.plane = new Mesh(this.gl, {
       geometry: this.geometry,
+
       program: this.program,
     });
-
+    console.log(this.geometry);
+    console.log(this.program);
     this.plane.setParent(this.scene);
+  }
+
+  update(scroll, direction) {
+    // console.log(scroll);
+    this.plane.position.x = this.x - scroll.target - this.extra;
+
+    const planeOffset = this.plane.scale.x / 2;
+    const viewportOffset = this.viewport.width;
+
+    this.isBefore = this.plane.position.x + planeOffset < -viewportOffset;
+    this.isAfter = this.plane.position.x - planeOffset > viewportOffset;
+
+    if (direction === "right" && this.isBefore) {
+      this.extra -= this.widthTotal;
+
+      this.isBefore = false;
+      this.isAfter = false;
+    }
+
+    if (direction === "left" && this.isAfter) {
+      this.extra += this.widthTotal;
+
+      this.isBefore = false;
+      this.isAfter = false;
+    }
   }
 
   onResize({ screen, viewport } = {}) {
@@ -95,5 +126,12 @@ export default class {
       this.plane.scale.x,
       this.plane.scale.y,
     ];
+
+    this.padding = 2;
+
+    this.width = this.plane.scale.x + this.padding;
+    this.widthTotal = this.width * this.length;
+
+    this.x = this.width * this.index;
   }
 }

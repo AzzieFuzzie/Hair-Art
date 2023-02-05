@@ -1,14 +1,25 @@
-.navigation__wrapper {
+.navigation__bar {
+  margin: 0 4rem;
+}
+.navigation__bar__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation {
+  opacity: 0;
   padding: 3rem 4rem;
-  display: grid;
+  display: none;
   grid-template-columns: repeat(5, 1fr);
   background-color: $color-vulcan;
   color: $color-white;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  min-width: 100vw;
   overflow: hidden;
+  z-index: 2;
   grid-template-areas:
-    "img . navigation img_1 ."
+    "img . navigation img_1 img_1"
     ". text_1 . text_2 text_2";
 
   @include media("<phone") {
@@ -23,25 +34,23 @@ nav.navigation {
   @extend %title-130;
 }
 
-.navigation__images {
-}
 .navigation__image {
   grid-area: img;
 }
+
 .navigation__image__1 {
   grid-area: img_1;
+  justify-self: center;
+  align-self: end;
+  margin-bottom: 4rem;
 }
-.navigation {
+
+.navigation__list {
   grid-area: navigation;
   justify-self: center;
 }
-.navigation__link {
-}
-.navigation__list {
-}
-.navigation__list__item {
-}
-.nav__booking_text {
+
+.nav__booking__text {
   @extend %description-22;
   grid-area: text_1;
 }
@@ -51,4 +60,16 @@ nav.navigation {
   display: flex;
   column-gap: 1.5rem;
   justify-self: center;
+}
+
+.close {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 45px;
+  height: 45px;
+  z-index: 20;
+  cursor: pointer;
 }

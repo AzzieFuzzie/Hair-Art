@@ -1,12 +1,21 @@
 import { Renderer, Camera, Transform, Plane } from "ogl";
 import map from "lodash/map";
 import Media from "./Media";
+import NormalizeWheel from "normalize-wheel";
 
 export default class Canvas {
   constructor() {
+    this.scroll = {
+      ease: 0.05,
+      current: 0,
+      target: 0,
+      last: 0,
+    };
+
     this.createRenderer();
     this.createCamera();
     this.createScene();
+    this.createGeometry();
 
     this.onResize();
 
@@ -67,13 +76,33 @@ export default class Canvas {
   /**
    * Events.
    */
-  onTouchDown(event) {}
+  onTouchDown(event) {
+    console.log("touching down");
+    this.isDown = true;
 
-  onTouchMove(event) {}
+    this.scroll.position = this.scroll.current;
+    this.start = event.touches ? event.touches[0].clientX : event.clientX;
+  }
 
-  onTouchUp(event) {}
+  onTouchMove(event) {
+    if (!this.isDown) return;
 
-  onWheel(event) {}
+    const x = event.touches ? event.touches[0].clientX : event.clientX;
+    const distance = (this.start - x) * 0.01;
+
+    this.scroll.target = this.scroll.position + distance;
+  }
+
+  onTouchUp(event) {
+    this.isDown = false;
+  }
+
+  onWheel(event) {
+    const normalized = NormalizeWheel(event);
+    const speed = normalized.pixelY;
+
+    this.scroll.target += speed * 0.005;
+  }
 
   /**
    * Resize.
@@ -113,11 +142,26 @@ export default class Canvas {
    * Update.
    */
   update() {
+    // (this.scroll.current = this.scroll.current),
+    //   this.scroll.target,
+    //   this.scroll.ease;
+
+    if (this.scroll.current > this.scroll.last) {
+      this.direction = "right";
+    } else {
+      this.direction = "left";
+    }
+
+    if (this.medias) {
+      this.medias.forEach((media) => media.update(this.scroll, this.direction));
+    }
+
     this.renderer.render({
       scene: this.scene,
       camera: this.camera,
     });
-    this.medias.forEach((media) => media.update(this.scroll, this.direction));
+
+    this.scroll.last = this.scroll.current;
 
     window.requestAnimationFrame(this.update.bind(this));
   }

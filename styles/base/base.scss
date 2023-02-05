@@ -44,6 +44,8 @@ button {
   color: inherit;
   cursor: pointer;
   outline: none;
+
+  @extend %title-55;
 }
 
 img {

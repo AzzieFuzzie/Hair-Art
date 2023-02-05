@@ -1,12 +1,12 @@
 import Page from "classes/Page.js";
 
-export default class Home extends Page {
+export default class Treatments extends Page {
   constructor() {
     super({
-      id: "home",
-      element: ".home",
+      id: "treatments",
+      element: ".treatments",
       elements: {
-        wrapper: ".home__wrapper",
+        wrapper: ".treatments__wrapper",
 
         // navigation: document.querySelector(".navigation"),
       },

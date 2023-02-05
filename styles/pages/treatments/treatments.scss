@@ -1,35 +1,50 @@
 .treatments__wrapper {
-  padding: 15rem 4rem;
   background-color: $color-vulcan;
   color: $color-white;
 }
-.treatments__wash,
+
 .treatments__beard,
 .treatments__facial,
 .treatments__massage,
 .treatments__home {
-  @extend %description-22;
+  display: none;
+}
 
+.treatments__wash {
+  @extend %description-22;
+  padding: 15rem 4rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: normal;
-  align-content: normal;
+  align-items: center;
   max-width: 50vw;
   margin: auto;
 }
 
 .treatments__title {
   @extend %title-140;
+  margin-bottom: 7.5rem;
 }
 
+.treatments__image {
+  margin-bottom: 7.5rem;
+}
 .treatments__title__wrapper {
   display: flex;
   flex-wrap: nowrap;
 }
 
 .treatments__image__wrapper {
+}
+
+.treatments__services {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .treatments__row {

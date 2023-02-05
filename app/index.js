@@ -4,12 +4,13 @@ import Canvas from "components/Canvas/index.js";
 import Home from "pages/Home/index.js";
 import About from "pages/About/index.js";
 import Contact from "pages/Contact/index.js";
+import Treatments from "pages/Treatments/index.js";
 
 class App {
   constructor() {
     this.createContent();
 
-    this.createCanvas();
+    // this.createCanvas();
     this.createPages();
 
     this.onResize();
@@ -31,6 +32,7 @@ class App {
       home: new Home(),
       about: new About(),
       contact: new Contact(),
+      treatments: new Treatments(),
     };
 
     this.page = this.pages[this.template];
@@ -67,6 +69,10 @@ class App {
     if (this.page && this.page.onResize) {
       this.page.onResize();
     }
+
+    if (this.canvas && this.canvas.onResize) {
+      this.canvas.onResize();
+    }
   }
 
   /*
@@ -76,6 +82,9 @@ class App {
   update() {
     if (this.page && this.page.update) {
       this.page.update();
+    }
+    if (this.canvas && this.canvas.onResize) {
+      this.canvas.onResize();
     }
 
     this.frame = window.requestAnimationFrame(this.update.bind(this));
