@@ -6,6 +6,8 @@ import map from "lodash/map";
 
 import Marquee from "../animations/marquee";
 import Navigation from "../animations/Navigation";
+import Slider from "../animations/Slider";
+
 
 export default class Page {
   constructor({ element, elements, id }) {
@@ -14,6 +16,7 @@ export default class Page {
       ...elements,
       animationGallery: '[data-animation="gallery"]',
       navigation: '[data-animation="navigation"]',
+      cylinderRotation: '[data-animation="rotation"]',
     };
 
     this.id = id;
@@ -63,6 +66,9 @@ export default class Page {
     });
 
     this.navigation = new Navigation();
+
+    this.slider = new Slider();
+  
   }
 
   show() {

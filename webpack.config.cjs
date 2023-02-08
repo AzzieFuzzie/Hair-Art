@@ -109,21 +109,21 @@ module.exports = {
       },
 
       {
-        test: /\.(png|jpg|gif|jpe?g|svg|woff2?|fnt|webp|mp4)$/,
+        test: /\.(png|jpg|gif|jpe?g|svg|woff2?|fnt|webp|mp4)$/i,
         type: "asset/resource",
         generator: {
           filename: "[name].[hash].[ext]",
         },
       },
 
-      {
-        test: /\.(jpe?g|png|gif|svg|webp)$/i,
-        use: [
-          {
-            loader: ImageMinimizerPlugin.loader,
-          },
-        ],
-      },
+      // {
+      //   test: /\.(jpe?g|png|gif|svg|webp)$/i,
+      //   use: [
+      //     {
+      //       loader: ImageMinimizerPlugin.loader,
+      //     },
+      //   ],
+      // },
 
       {
         test: /\.(glsl|frag|vert)$/,

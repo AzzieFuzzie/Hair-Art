@@ -58,6 +58,7 @@
 }
 
 .footer__wrapper ul li {
+  @extend %link__animation;
   margin: 1.5rem 0;
 }
 

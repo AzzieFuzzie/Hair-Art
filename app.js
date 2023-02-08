@@ -52,28 +52,35 @@ const handleRequest = async () => {
   });
 
   treatments.data.body.forEach((section) => {
+    console.log(section);
     if (section.id === "treatments_$7baf9a49-82ed-407b-95ce-4118de7ce015") {
       assets.push(section.items);
+      // console.log(assets);
     } else if (
       section.id === "treatments_$aa7490d8-3329-44f3-bb07-55b34ade9ab5"
     ) {
       assets.push(section.items);
-    } else if (
-      section.id === "treatments_$aa7490d8-3329-44f3-bb07-55b34ade9ab5"
-    ) {
-      assets.push(section.items);
+      // console.log(assets);
     } else if (
       section.id === "treatments_$6b099684-f9d6-432c-82e7-5db7b3fd88b5"
     ) {
       assets.push(section.items);
+      // console.log(assets);
     } else if (
       section.id === "treatments_$5fc92f66-3a21-4dcc-996c-338951502e44"
     ) {
       assets.push(section.items);
+      // console.log(assets);
     } else if (
       section.id === "treatments_$a5a83c4f-6aff-47cd-9a44-0aea3a103b9a"
     ) {
       assets.push(section.items);
+      // console.log(assets);
+    } else if (
+      section.id === "treatments_$a5a83c4f-6aff-47cd-9a44-0aea3a103b9a"
+    ) {
+      assets.push(section.items);
+      // console.log(assets);
     }
   });
 

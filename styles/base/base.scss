@@ -32,6 +32,10 @@ a {
   text-decoration: none;
 }
 
+svg {
+  cursor: pointer;
+}
+
 canvas {
   pointer-events: none;
   position: relative;

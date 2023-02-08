@@ -3,22 +3,15 @@
   color: $color-white;
 }
 
-.treatments__beard,
-.treatments__facial,
-.treatments__massage,
-.treatments__home {
-  display: none;
-}
-
-.treatments__wash {
+.treatments__header__wrapper {
   @extend %description-22;
-  padding: 15rem 4rem;
+  padding: 0 4rem;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  max-width: 50vw;
+  max-width: 70vw;
   margin: auto;
 }
 
@@ -27,7 +20,59 @@
   margin-bottom: 7.5rem;
 }
 
+// .treatments__beard,
+// .treatments__facial,
+// .treatments__massage,
+// .treatments__home,
+// .treatments__hairCuts {
+//   display: none;
+// }
+
+.treatments__beard,
+.treatments__facial,
+.treatments__massage,
+.treatments__home,
+.treatments__hairCuts,
+.treatments__wash {
+  @extend %description-22;
+  padding: 15rem 4rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: start;
+  max-width: 70vw;
+  margin: auto;
+}
+
+.flex__active {
+  @extend %description-22;
+  padding: 15rem 4rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: start;
+  max-width: 70vw;
+  margin: auto;
+}
+
+.next__arrow {
+  transform: translateY(-50%);
+  margin-left: 25rem;
+}
+
+.back__arrow {
+  transform: translateY(-50%);
+  margin-right: 25rem;
+}
+.treatments__wash__wrapper {
+  display: flex;
+  align-items: center;
+}
+
 .treatments__image {
+  position: relative;
   margin-bottom: 7.5rem;
 }
 .treatments__title__wrapper {

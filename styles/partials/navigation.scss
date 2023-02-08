@@ -7,15 +7,21 @@
   align-items: center;
 }
 
+.navigation__bar__title {
+  font-family: $font-rye;
+}
+
 .navigation {
   opacity: 0;
   padding: 3rem 4rem;
+
   display: none;
+  overflow-y: hidden;
   grid-template-columns: repeat(5, 1fr);
   background-color: $color-vulcan;
   color: $color-white;
-  min-height: 100vh;
-  min-width: 100vw;
+  height: 100vh;
+  width: 100vw;
   overflow: hidden;
   z-index: 2;
   grid-template-areas:
@@ -48,6 +54,10 @@ nav.navigation {
 .navigation__list {
   grid-area: navigation;
   justify-self: center;
+}
+
+ul li a span {
+  @extend %link__animation;
 }
 
 .nav__booking__text {

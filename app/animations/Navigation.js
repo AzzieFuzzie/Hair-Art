@@ -7,14 +7,14 @@ export default class Navigation extends Animation {
   }
 
   animateIn() {
-    const navigationButton = document.querySelector("button");
+    const navigationButton = document.querySelector(".navigation__bar__button");
 
     navigationButton.addEventListener("click", function () {
       let tl = GSAP.timeline();
       tl.to(".navigation", {
         display: "grid",
         opacity: "1",
-        duration: 2,
+        duration: 1,
         ease: "linear",
       });
 

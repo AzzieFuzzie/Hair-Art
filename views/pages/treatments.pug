@@ -7,11 +7,29 @@ block content
     .treatments
         .treatments__wrapper
             include navigation
-            section.treatments__wash
-                each section in treatments.data.body
-                    if section.id =="treatments_$aa7490d8-3329-44f3-bb07-55b34ade9ab5" 
-                        h2.treatments__title=section.primary.title
-                        img.treatments__image(src=section.primary.treatments_image.url)
+
+            
+                //-  each section in treatments.data.body
+                //-     if section.id =="treatments_$105d72bb-6ae1-4c4e-a614-4d4c6b54358d" 
+          
+            section.treatments__header__wrapper
+    
+                h2.reveal.treatments__title  Wash &amp Blow Dry
+                .treatments__wash__wrapper
+                    <svg class="back__arrow" width="88" height="89" viewBox="0 0 88 89" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.49999 44.0928C0.49999 20.0684 19.9756 0.592771 44 0.592771C68.0244 0.592771 87.5 20.0684 87.5 44.0928C87.5 68.1172 68.0244 87.5928 44 87.5928C19.9756 87.5928 0.49999 68.1172 0.49999 44.0928Z" stroke="#FAF5EF"/>
+                    <path d="M21.8926 43.5076L43.9996 31.256L32.2092 43.5076L43.9996 55.7593L21.8926 43.5076Z" fill="#FAF5EF"/>
+                    <path d="M61 43.6343L31.5 43.6343" stroke="#FAF5EF" stroke-width="3"/>
+                    </svg>
+
+                    img.treatments__image(src="../../animations/images/image01.jpg")
+                    
+                    <svg class="next__arrow" width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="44" cy="44" r="43.5" stroke="#FAF5EF"/>
+                        <path d="M66.1074 44.1253L44.0004 56.2507L55.7908 44.1253L44.0004 32L66.1074 44.1253Z" fill="#FAF5EF"/>
+                        <path d="M27 44H56.5" stroke="#FAF5EF" stroke-width="3"/>
+                    </svg>
+            section.sp.treatments__wash
                 .treatments__services
                     .treatments__col
                         .treatments__row
@@ -42,157 +60,162 @@ block content
                     
 
             section.treatments__massage
-                each section in treatments.data.body
-                    if section.id =="treatments_$aa7490d8-3329-44f3-bb07-55b34ade9ab5" 
-                        h2.treatments__title=section.primary.title
-                .treatments__col
-                    .treatments__row
-                        p.treatments__massage__text=assets[9][0].service
-                        p.treatments__massage__price=assets[9][0].price
-                    .line__treatments 
-                    .treatments__row
-                        p.treatments__massage__text=assets[9][1].service
-                        p.treatments__massage__text=assets[9][1].price
-                    .line__treatments
-                    .treatments__row
-                        p.treatments__massage__text=assets[9][2].service
-                        p.treatments__massage__price=assets[9][2].price
-                    .line__treatments
-                .treatments__col
-                    .treatments__row
-                        p.treatments__massage__text=assets[9][3].service
-                        p.treatments__massage__price=assets[9][3].price
-                    .line__treatments
-                    
+                .treatments__services
+                    .treatments__col
+                        .treatments__row
+                            p.treatments__massage__text=assets[9][0].service
+                            p.treatments__massage__price=assets[9][0].price
+                        .line__treatments 
+                        .treatments__row
+                            p.treatments__massage__text=assets[9][1].service
+                            p.treatments__massage__text=assets[9][1].price
+                        .line__treatments
+                        .treatments__row
+                            p.treatments__massage__text=assets[9][2].service
+                            p.treatments__massage__price=assets[9][2].price
+                        .line__treatments
+                    .treatments__col
+                        .treatments__row
+                            p.treatments__massage__text=assets[9][3].service
+                            p.treatments__massage__price=assets[9][3].price
+                        .line__treatments
+                        
 
-            section.treatments__facial 
-                each section in treatments.data.body
-                    if section.id =="treatments_$105d72bb-6ae1-4c4e-a614-4d4c6b54358d" 
-                        h2.treatments__title=section.primary.title  
-                .treatments__col
-                    .treatments__row
-                        p.treatments__facial__text=assets[10][0].service
-                        p.treatments__facial__price=assets[10][0].price
-                    .line__treatments 
-                    .treatments__row
-                        p.treatments__facial__text=assets[10][1].service
-                        p.treatments__facial__text=assets[10][1].price
-                    .line__treatments
-                    .treatments__row
-                        p.treatments__facial__text=assets[10][2].service
-                        p.treatments__facial__price=assets[10][2].price
-                    .line__treatments
-                    .treatments__row
-                        p.treatments__facial__text=assets[10][3].service
-                        p.treatments__facial__price=assets[10][3].price
-                    .line__treatments
-                    //- .treatments__row
-                    //-     p.treatments__facial__text=assets[10][4].service
-                    //-     p.treatments__facial__price=assets[10][4].price
-                    //- .line__treatments
-                //- .treatments__col
-                //-     .treatments__row
-                //-         p.treatments__facial__text=assets[10][5].service
-                //-         p.treatments__facial__price=assets[10][5].price
-                //-     .line__treatments
-                //-     .treatments__row
-                //-         p.treatments__facial__text=assets[10][6].service
-                //-         p.treatments__facial__price=assets[10][6].price
-                //-     .line__treatments
-                //-     .treatments__row
-                //-         p.treatments__facial__text=assets[10][7].service
-                //-         p.treatments__facial__price=assets[10][7].price
-                //-     .line__treatments
-                //-     .treatments__row
-                //-         p.treatments__facial__text=assets[10][8].service
-                //-         p.treatments__facial__price=assets[10][8].price
-                //-     .line__treatments
-                //-     .treatments__row
-                //-         p.treatments__facial__text=assets[10][9].service
-                //-         p.treatments__facial__price=assets[10][9].price
-                //-     .line__treatments
-                //-     .treatments__row
-                //-         p.treatments__facial__text=assets[10][10].service
-                //-         p.treatments__facial__price=assets[10][10].price
-                //-     .line__treatments
+            section.treatments__home 
+                .treatments__services
+                    .treatments__col
+                        .treatments__row
+                            p.treatments__home__text=assets[10][0].service
+                            p.treatments__home__price=assets[10][0].price
+                        .line__treatments 
+                        .treatments__row
+                            p.treatments__home__text=assets[10][1].service
+                            p.treatments__home__text=assets[10][1].price
+                        .line__treatments
+                    .treatments__col   
+                        .treatments__row
+                            p.treatments__home__text=assets[10][2].service
+                            p.treatments__home__price=assets[10][2].price
+                        .line__treatments
+                        .treatments__row
+                            p.treatments__home__text=assets[10][3].service
+                            p.treatments__home__price=assets[10][3].price
+                        .line__treatments
                 
-            section.treatments__home
-                each section in treatments.data.body
-                    if section.id =="treatments_$6b099684-f9d6-432c-82e7-5db7b3fd88b5" 
-                        h2.treatments__title=section.primary.title  
-                .treatments__col
-                    .treatments__row
-                        p.treatments__home__text=assets[11][0].service
-                        p.treatments__home__price=assets[11][0].price
-                    .line__treatments 
-                    .treatments__row
-                        p.treatments__home__text=assets[11][1].service
-                        p.treatments__home__text=assets[11][1].price
-                    .line__treatments
-                    .treatments__row
-                        p.treatments__home__text=assets[11][2].service
-                        p.treatments__home__price=assets[11][2].price
-                    .line__treatments
-                .treatments__col
-                    .treatments__row
-                        p.treatments__home__text=assets[11][3].service
-                        p.treatments__home__price=assets[11][3].price
-                    .line__treatments
-
-            section.treatments__beard   
-                each section in treatments.data.body
-                    if section.id =="treatments_$5fc92f66-3a21-4dcc-996c-338951502e44" 
-                        h2.treatments__title=section.primary.title  
-                .treatments__col
-                    .treatments__row
-                        p.treatments__beard__text=assets[10][0].service
-                        p.treatments__beard__price=assets[10][0].price
-                    .line__treatments 
-                    .treatments__row
-                        p.treatments__beard__text=assets[10][1].service
-                        p.treatments__beard__text=assets[10][1].price
-                    .line__treatments
-                    .treatments__row
-                        p.treatments__beard__text=assets[10][2].service
-                        p.treatments__beard__price=assets[10][2].price
-                    .line__treatments
-                    .treatments__row
-                        p.treatments__beard__text=assets[10][3].service
-                        p.treatments__beard__price=assets[10][3].price
-                    .line__treatments
+                    
+            section.treatments__beard 
+                .treatments__services
+                    .treatments__col
+                        .treatments__row
+                            p.treatments__beard__text=assets[11][0].service
+                            p.treatments__beard__price=assets[11][0].price
+                        .line__treatments 
+                        .treatments__row
+                            p.treatments__beard__text=assets[11][1].service
+                            p.treatments__beard__text=assets[11][1].price
+                        .line__treatments
+                        .treatments__row
+                            p.treatments__beard__text=assets[11][2].service
+                            p.treatments__beard__price=assets[11][2].price
+                        .line__treatments
                    
-                //- .treatments__col
-                //-     .treatments__row
-                //-         p.treatments__beard__text=assets[10][5].service
-                //-         p.treatments__beard__price=assets[10][5].price
-                //-     .line__treatments
-                //-     .treatments__row
-                //-         p.treatments__beard__text=assets[10][6].service
-                //-         p.treatments__beard__price=assets[10][6].price
-                //-     .line__treatments
-                //-     .treatments__row
-                //-         p.treatments__beard__text=assets[10][7].service
-                //-         p.treatments__beard__price=assets[10][7].price
-                //-     .line__treatments
-                //-     .treatments__row
-                //-         p.treatments__beard__text=assets[10][8].service
-                //-         p.treatments__beard__price=assets[10][8].price
-                //-     .line__treatments
-                //-     .treatments__row
-                //-         p.treatments__beard__text=assets[10][9].service
-                //-         p.treatments__beard__price=assets[10][9].price
-                //-     .line__treatments
-                //-     .treatments__row
-                //-         p.treatments__beard__text=assets[10][10].service
-                //-         p.treatments__beard__price=assets[10][10].price
-                //-     .line__treatments
-                //-     .treatments__row
-                //-         p.treatments__beard__text=assets[10][11].service
-                //-         p.treatments__beard__price=assets[10][11].price
-                //-     .line__treatments
-                //-     .treatments__row
-                //-         p.treatments__beard__text=assets[10][12].service
-                //-         p.treatments__beard__price=assets[10][12].price
-                //-     .line__treatments
+                        .treatments__row
+                            p.treatments__beard__text=assets[11][3].service
+                            p.treatments__beard__price=assets[11][3].price
+                        .line__treatments
+                        .treatments__row
+                            p.treatments__beard__text=assets[11][4].service
+                            p.treatments__beard__price=assets[11][4].price
+                        .line__treatments
+                        .treatments__row
+                            p.treatments__beard__text=assets[11][5].service
+                            p.treatments__beard__price=assets[11][5].price
+                        .line__treatments
+                    .treatments__col
+                        .treatments__row
+                            p.treatments__beard__text=assets[11][6].service
+                            p.treatments__beard__price=assets[11][6].price
+                        .line__treatments
+                   
+                        .treatments__row
+                            p.treatments__beard__text=assets[11][7].service
+                            p.treatments__beard__price=assets[11][7].price
+                        .line__treatments
+                        .treatments__row
+                            p.treatments__beard__text=assets[11][8].service
+                            p.treatments__beard__price=assets[11][8].price
+                        .line__treatments
+                        .treatments__row
+                            p.treatments__beard__text=assets[11][9].service
+                            p.treatments__beard__price=assets[11][9].price
+                        .line__treatments
+
+            section.treatments__hairCuts   
+                .treatments__services
+                    .treatments__col
+                        .treatments__row
+                            p.treatments__hairCuts__text=assets[12][0].service
+                            p.treatments__hairCuts__price=assets[12][0].price
+                        .line__treatments 
+                        .treatments__row
+                            p.treatments__hairCuts__text=assets[12][1].service
+                            p.treatments__hairCuts__text=assets[12][1].price
+                        .line__treatments
+                        .treatments__row
+                            p.treatments__hairCuts__text=assets[12][2].service
+                            p.treatments__hairCuts__price=assets[12][2].price
+                        .line__treatments
+                    .treatments__col
+                        .treatments__row
+                            p.treatments__hairCuts__text=assets[12][3].service
+                            p.treatments__hairCuts__price=assets[12][3].price
+                        .line__treatments
+                        .treatments__row
+                            p.treatments__hairCuts__text=assets[12][4].service
+                            p.treatments__hairCuts__price=assets[12][4].price
+                        .line__treatments
+                        .treatments__row
+                            p.treatments__hairCuts__text=assets[12][5].service
+                            p.treatments__hairCuts__price=assets[12][5].price
+                        .line__treatments
+                    
+                        .treatments__row
+                            p.treatments__hairCuts__text=assets[12][6].service
+                            p.treatments__hairCuts__price=assets[12][6].price
+                        .line__treatments 
+
+            //- section.treatments__hairCuts  
+               
+            //-     .treatments__col
+            //-         .treatments__row
+            //-             p.treatments__hairCut__text=assets[13][0].service
+            //-             p.treatments__hairCut__price=assets[13][0].price
+            //-         .line__treatments 
+            //-         .treatments__row
+            //-             p.treatments__hairCut__text=assets[13][1].service
+            //-             p.treatments__hairCut__text=assets[13][1].price
+            //-         .line__treatments
+            //-         .treatments__row
+            //-             p.treatments__hairCut__text=assets[13][2].service
+            //-             p.treatments__hairCut__price=assets[13][2].price
+            //-         .line__treatments
+            //-         .treatments__row
+            //-             p.treatments__hairCut__text=assets[13][3].service
+            //-             p.treatments__hairCut__price=assets[13][3].price
+            //-         .line__treatments
+            //-         .treatments__row
+            //-             p.treatments__hairCut__text=assets[13][4].service
+            //-             p.treatments__hairCut__price=assets[13][4].price
+            //-         .line__treatments
+            //-         .treatments__row
+            //-             p.treatments__hairCut__text=assets[13][5].service
+            //-             p.treatments__hairCut__price=assets[13][5].price
+            //-         .line__treatments  
+            //-         .treatments__row
+            //-             p.treatments__hairCut__text=assets[13][6].service
+            //-             p.treatments__hairCut__price=assets[13][6].price
+            //-         .line__treatments 
+
+                
             include footer           
                         

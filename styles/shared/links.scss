@@ -1,61 +1,80 @@
 %link__wrapper {
-	display: inline-block;
-	overflow: hidden;
-	position: relative;
-	vertical-align: top;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  vertical-align: top;
 }
 
 %link__line {
-	background: currentColor;
-	bottom: 0;
-	content: '';
-	height: 1px;
-	left: 0;
-	position: absolute;
-	transition: transform 0.7s $ease-in-out;
-	width: 100%;
+  background: currentColor;
+  bottom: 0;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  transition: transform 0.7s $ease-in-out;
+  width: 100%;
 }
 
 %link__line--visible {
-	transform: scaleX(1);
-	transform-origin: left center;
+  transform: scaleX(1);
+  transform-origin: left center;
 }
 
 %link__line--hidden {
-	transform: scaleX(0);
-	transform-origin: right center;
+  transform: scaleX(0);
+  transform-origin: right center;
+}
+
+%link__animation {
+  //   display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+
+  &:hover {
+    -webkit-transform: skew(-10deg);
+    transform: skew(-10deg);
+  }
 }
 
 %link {
-	@extend %link__wrapper;
+  @extend %link__wrapper;
 
-	display: inline-block;
+  display: inline-block;
 
-	&:after {
-		@extend %link__line;
-		@extend %link__line--visible;
-	}
+  &:after {
+    @extend %link__line;
+    @extend %link__line--visible;
+  }
 
-	&:hover {
-		&:after {
-			@extend %link__line--hidden;
-		}
-	}
+  &:hover {
+    &:after {
+      @extend %link__line--hidden;
+    }
+  }
 }
 
 %link--hidden {
-	@extend %link__wrapper;
+  @extend %link__wrapper;
 
-	display: inline-block;
+  display: inline-block;
 
-	&:after {
-		@extend %link__line;
-		@extend %link__line--hidden;
-	}
+  &:after {
+    @extend %link__line;
+    @extend %link__line--hidden;
+  }
 
-	&:hover {
-		&:after {
-			@extend %link__line--visible;
-		}
-	}
+  &:hover {
+    &:after {
+      @extend %link__line--visible;
+    }
+  }
 }
