@@ -29,7 +29,7 @@
 // }
 
 .treatments__beard,
-.treatments__facial,
+.treatments__facials,
 .treatments__massage,
 .treatments__home,
 .treatments__hairCuts,
@@ -88,7 +88,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
   width: 100%;
 }
 

@@ -56,7 +56,7 @@ nav.navigation {
   justify-self: center;
 }
 
-ul li a span {
+.navigation__list__link {
   @extend %link__animation;
 }
 

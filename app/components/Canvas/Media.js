@@ -1,137 +1,143 @@
-import { Mesh, Program, Texture } from "ogl";
-import fragment from "shaders/fragment.glsl";
+/* eslint-disable no-unused-vars */
+import { Mesh, Program } from "ogl";
+import GSAP from "gsap";
+
+import Detection from "classes/Detection";
+
 import vertex from "shaders/vertex.glsl";
-import map from "lodash/map";
+import fragment from "shaders/fragment.glsl";
 
-export default class {
-  constructor({
-    geometry,
-    gl,
-    image,
-    index,
-    length,
-    renderer,
-    scene,
-    screen,
-
-    viewport,
-  }) {
-    this.extra = 0;
-
-    this.geometry = geometry;
+export default class Media {
+  constructor({ element, geometry, gl, index, scene, sizes }) {
+    this.element = element;
     this.gl = gl;
-    this.image = image;
-    this.index = index;
-    this.length = length;
+    this.geometry = geometry;
     this.scene = scene;
-    this.screen = screen;
+    this.index = index;
+    this.sizes = sizes;
 
-    this.viewport = viewport;
+    this.extra = {
+      x: 0,
+      y: 0,
+    };
 
-    this.createShader();
+    this.createTexture();
+    this.createProgram();
     this.createMesh();
-    // this.update();
-    this.onResize();
+    this.createBounds({
+      sizes: this.sizes,
+    });
   }
 
-  createShader() {
-    const texture = new Texture(this.gl, {
-      generateMipmaps: false,
-    });
+  createTexture() {
+    const image = this.element.querySelector("img");
 
+    this.texture = window.TEXTURES[image.getAttribute("data-src")];
+  }
+
+  createProgram() {
     this.program = new Program(this.gl, {
       fragment,
       vertex,
       uniforms: {
-        tMap: { value: texture },
-        uPlaneSizes: { value: [0, 0] },
-        uImageSizes: { value: [0, 0] },
-        uViewportSizes: { value: [this.viewport.width, this.viewport.height] },
+        uAlpha: { value: 0 },
+        tMap: { value: this.texture },
       },
-      transparent: true,
     });
-
-    const image = new Image();
-
-    image.src = this.image.src;
-    image.crossOrigin = "anonymous";
-    image.onload = (_) => {
-      texture.image = image;
-
-      this.program.uniforms.uImageSizes.value = [
-        image.naturalWidth,
-        image.naturalHeight,
-      ];
-    };
   }
 
   createMesh() {
-    this.plane = new Mesh(this.gl, {
+    this.mesh = new Mesh(this.gl, {
       geometry: this.geometry,
-
       program: this.program,
     });
-    console.log(this.geometry);
-    console.log(this.program);
-    this.plane.setParent(this.scene);
+
+    this.mesh.setParent(this.scene);
   }
 
-  update(scroll, direction) {
-    // console.log(scroll);
-    this.plane.position.x = this.x - scroll.target - this.extra;
+  createBounds({ sizes }) {
+    this.sizes = sizes;
 
-    const planeOffset = this.plane.scale.x / 2;
-    const viewportOffset = this.viewport.width;
+    this.bounds = this.element.getBoundingClientRect();
 
-    this.isBefore = this.plane.position.x + planeOffset < -viewportOffset;
-    this.isAfter = this.plane.position.x - planeOffset > viewportOffset;
-
-    if (direction === "right" && this.isBefore) {
-      this.extra -= this.widthTotal;
-
-      this.isBefore = false;
-      this.isAfter = false;
-    }
-
-    if (direction === "left" && this.isAfter) {
-      this.extra += this.widthTotal;
-
-      this.isBefore = false;
-      this.isAfter = false;
-    }
+    this.updateScale();
+    this.updateX();
+    this.updateY();
   }
 
-  onResize({ screen, viewport } = {}) {
-    if (screen) {
-      this.screen = screen;
-    }
+  // Animations
+  show() {
+    GSAP.fromTo(
+      this.program.uniforms.uAlpha,
+      {
+        value: 0,
+      },
+      {
+        value: 1,
+      }
+    );
+  }
 
-    if (viewport) {
-      this.viewport = viewport;
+  hide() {
+    GSAP.to(this.program.uniforms.uAlpha, {
+      value: 0,
+    });
+  }
 
-      this.plane.program.uniforms.uViewportSizes.value = [
-        this.viewport.width,
-        this.viewport.height,
-      ];
-    }
+  // Events
 
-    this.scale = this.screen.height / 1500;
+  onResize(sizes, scroll) {
+    this.extra = 0;
 
-    this.plane.scale.y =
-      (this.viewport.height * (900 * this.scale)) / this.screen.height;
-    this.plane.scale.x =
-      (this.viewport.width * (700 * this.scale)) / this.screen.width;
+    this.createBounds(sizes);
+    this.updateX(scroll);
+    this.updateY(0);
+  }
 
-    this.plane.program.uniforms.uPlaneSizes.value = [
-      this.plane.scale.x,
-      this.plane.scale.y,
-    ];
+  // Loop.
+  updateRotation() {
+    this.mesh.rotation.z = GSAP.utils.mapRange(
+      -this.sizes.width / 2,
+      this.sizes.width / 2,
+      Math.PI * 0.1,
+      -Math.PI * 0.1,
+      this.mesh.position.x
+    );
+  }
 
-    this.padding = 2;
+  updateScale() {
+    this.height = this.bounds.height / window.innerHeight;
+    this.width = this.bounds.width / window.innerWidth;
 
-    this.width = this.plane.scale.x + this.padding;
-    this.widthTotal = this.width * this.length;
+    this.mesh.scale.x = this.sizes.width * this.width;
+    this.mesh.scale.y = this.sizes.height * this.height;
 
-    this.x = this.width * this.index;
+    // scaling logic while rotation
+    // const scale = GSAP.utils.mapRange(0, this.sizes.width / 2, 0.1, 0, Math.abs(this.mesh.position.x)); // prettier-ignore
+
+    // this.mesh.scale.x += scale;
+    // this.mesh.scale.y += scale;
+  }
+
+  updateX(x = 0) {
+    this.x = (this.bounds.left + x) / window.innerWidth;
+
+    this.mesh.position.x = (-this.sizes.width / 2) + (this.mesh.scale.x / 2) + (this.x  * this.sizes.width) + this.extra; // prettier-ignore
+  }
+
+  updateY(y = 0) {
+    this.y = (this.bounds.top + y) / window.innerHeight;
+
+    const extra = Detection.isPhone() ? 20 : 40;
+
+    this.mesh.position.y = (this.sizes.height / 2) - (this.mesh.scale.y / 2) - (this.y  * this.sizes.height); // prettier-ignore
+    this.mesh.position.y += Math.cos((this.mesh.position.x / this.sizes.width) * Math.PI * 0.1) * 58 - 58; // prettier-ignore
+  }
+
+  update(scroll) {
+    this.updateRotation();
+    this.updateScale();
+    this.updateX(scroll);
+    this.updateY(0);
   }
 }

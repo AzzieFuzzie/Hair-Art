@@ -17,15 +17,29 @@ block content
                             p.home__hero__description__1=section.primary.description_1
                             p.home__hero__description__mobile=section.primary.hero_description_mobile
                 .line
+         
+    
+                .menu
+                    .menu--wrapper
+                        .menu--item
+                            figure
+                                img(src=assets[5].gallery_image.url )
+                        .menu--item
+                            figure
+                                img(src=assets[5].gallery_image.url)
+                        .menu--item
+                            figure
+                                img(src=assets[5].gallery_image.url)
+                        .menu--item
+                            figure
+                                img(src=assets[5].gallery_image.url)
+                        .menu--item
+                            figure
+                                img(src=assets[5].gallery_image.url)
+                        .menu--item
+                            figure
+                                img(src=assets[5].gallery_image.url)
 
-                section.home__gallery 
-                    .home__gallery__wrapper
-                        img.home__gallery__image( src=assets[4].gallery_image.url)
-                        img.home__gallery__image( src=assets[5].gallery_image.url)
-                        img.home__gallery__image( src=assets[6].gallery_image.url)
-                        img.home__gallery__image( src=assets[7].gallery_image.url)
-                        img.home__gallery__image( src=assets[7].gallery_image.url)
-                        img.home__gallery__image( src=assets[7].gallery_image.url)
 
 
             each section in home.data.body

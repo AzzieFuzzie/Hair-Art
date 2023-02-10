@@ -4,10 +4,9 @@ import Prefix from "prefix";
 import each from "lodash/each";
 import map from "lodash/map";
 
-import Marquee from "../animations/marquee";
+import Marquee from "../animations/Marquee";
 import Navigation from "../animations/Navigation";
 import Slider from "../animations/Slider";
-
 
 export default class Page {
   constructor({ element, elements, id }) {
@@ -66,9 +65,9 @@ export default class Page {
     });
 
     this.navigation = new Navigation();
+    this.marquee = new Marquee();
 
     this.slider = new Slider();
-  
   }
 
   show() {

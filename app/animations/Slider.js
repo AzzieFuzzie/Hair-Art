@@ -18,7 +18,7 @@ export default class Slider {
     const imageTag = document.querySelector(".treatments__image");
     const titleTag = document.querySelector(".treatments__title");
     const spClass = document.querySelector(".sp");
-    console.log(spClass);
+
     const washSection = document.querySelector(".treatments__wash");
     const massageSection = document.querySelector(".treatments__massage");
     const homeSection = document.querySelector(".treatments__home");

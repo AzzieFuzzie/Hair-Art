@@ -1,9 +1,10 @@
 import GSAP from "gsap";
 import Animation from "../classes/Animation";
 
-export default class Navigation extends Animation {
-  constructor(element, elements) {
-    super({ element, elements });
+export default class Navigation {
+  constructor() {
+    this.animateIn();
+    // this.animateOut();
   }
 
   animateIn() {
@@ -15,11 +16,37 @@ export default class Navigation extends Animation {
         display: "grid",
         opacity: "1",
         duration: 1,
-        ease: "linear",
+        ease: "expo.out",
+      });
+    });
+  }
+  animateOut() {
+    const navigationLinks = document.querySelectorAll(
+      ".navigation__list__link span"
+    );
+    navigationLinks.forEach((link) => {
+      let hover = GSAP.timeline();
+
+      hover.set(link, {
+        transformOrigin: "center center -100px",
+        duration: 2,
+        backfaceVisibility: "hidden",
       });
 
-      // .to(".navigation__bar", { duration: 2, opacity: 0 }, "-=0.1");
-      // .to(".close", { duration: 2, display: "block", opacity: 1 }, "-=0.1");
+      hover.to(link, {
+        rotationX: "360",
+        stagger: 0.1,
+      });
+
+      // link.addEventListener("mouseenter", () => hover.play());
+      // link.addEventListener("mouseenter", () => {
+      //   hover.play();
+      //   console.log("enter");
+      // });
+      link.addEventListener("mouseleave", () => {
+        hover.reverse();
+        console.log("enter");
+      });
     });
   }
 }

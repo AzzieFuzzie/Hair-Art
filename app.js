@@ -32,6 +32,12 @@ const handleRequest = async () => {
   const footer = await client.getSingle("footer");
 
   const assets = [];
+  const assetsWash = [];
+  const assetsMassage = [];
+  const assetsHome = [];
+  const assetsBeard = [];
+  const assetsHairCuts = [];
+  const assetsFacials = [];
 
   home.data.body.forEach((section) => {
     if (section.slice_type === "barbers") {
@@ -48,39 +54,39 @@ const handleRequest = async () => {
       assets.push(section.items[1]);
       assets.push(section.items[2]);
       assets.push(section.items[3]);
+      console.log(assets[5].gallery_image.url);
     }
   });
 
   treatments.data.body.forEach((section) => {
-    console.log(section);
     if (section.id === "treatments_$7baf9a49-82ed-407b-95ce-4118de7ce015") {
-      assets.push(section.items);
-      // console.log(assets);
+      assetsWash.push(section.items);
+      // console.log(assetsWash);
     } else if (
       section.id === "treatments_$aa7490d8-3329-44f3-bb07-55b34ade9ab5"
     ) {
-      assets.push(section.items);
-      // console.log(assets);
+      assetsMassage.push(section.items);
+      // console.log(assetsMassage);
     } else if (
       section.id === "treatments_$6b099684-f9d6-432c-82e7-5db7b3fd88b5"
     ) {
-      assets.push(section.items);
-      // console.log(assets);
+      assetsHome.push(section.items);
+      // console.log(assetsHome);
     } else if (
       section.id === "treatments_$5fc92f66-3a21-4dcc-996c-338951502e44"
     ) {
-      assets.push(section.items);
-      // console.log(assets);
+      assetsBeard.push(section.items);
+      // console.log(assetsBeard);
     } else if (
       section.id === "treatments_$a5a83c4f-6aff-47cd-9a44-0aea3a103b9a"
     ) {
-      assets.push(section.items);
-      // console.log(assets);
+      assetsHairCuts.push(section.items);
+      // console.log(assetsHairCuts);
     } else if (
-      section.id === "treatments_$a5a83c4f-6aff-47cd-9a44-0aea3a103b9a"
+      section.id === "treatments_$105d72bb-6ae1-4c4e-a614-4d4c6b54358d"
     ) {
-      assets.push(section.items);
-      // console.log(assets);
+      assetsFacials.push(section.items);
+      // console.log(assetsFacials);
     }
   });
 
@@ -91,6 +97,12 @@ const handleRequest = async () => {
     treatments,
     footer,
     assets,
+    assetsWash,
+    assetsMassage,
+    assetsHome,
+    assetsBeard,
+    assetsHairCuts,
+    assetsFacials,
   };
 };
 
