@@ -29,8 +29,9 @@
     ". text_1 . text_2 text_2";
 
   @include media("<phone") {
+    grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
-      " navigation navigation"
+      "navigation navigation"
       "text_1 img"
       "text_2 text_2";
   }
@@ -38,6 +39,12 @@
 
 nav.navigation {
   @extend %title-130;
+}
+
+.navigation__close {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .navigation__image {
@@ -49,6 +56,9 @@ nav.navigation {
   justify-self: center;
   align-self: end;
   margin-bottom: 4rem;
+  @include media("<phone") {
+    display: none;
+  }
 }
 
 .navigation__list {
@@ -63,6 +73,10 @@ nav.navigation {
 .nav__booking__text {
   @extend %description-22;
   grid-area: text_1;
+
+  @include media("<phone") {
+    align-self: center;
+  }
 }
 .nav__time__wrapper {
   @extend %description-22;
@@ -70,6 +84,10 @@ nav.navigation {
   display: flex;
   column-gap: 1.5rem;
   justify-self: center;
+}
+
+.nav__time__wrapper ul li {
+  margin: 1rem 0;
 }
 
 .close {

@@ -9,16 +9,22 @@ export default class Navigation {
 
   animateIn() {
     const navigationButton = document.querySelector(".navigation__bar__button");
+    const closeButton = document.querySelector(".navigation__close");
 
-    navigationButton.addEventListener("click", function () {
-      let tl = GSAP.timeline();
-      tl.to(".navigation", {
-        display: "grid",
-        opacity: "1",
-        duration: 1,
-        ease: "expo.out",
-      });
+    let tl = GSAP.timeline({ paused: true });
+
+    tl.to(".navigation", {
+      display: "grid",
+      opacity: "1",
+      ease: "expo.out",
     });
+
+    navigationButton.addEventListener("click", doCoolStuff);
+
+    function doCoolStuff() {
+      // navigationButton.innerHTML = closeButton;
+      tl.reversed() ? tl.play() : tl.reverse();
+    }
   }
   animateOut() {
     const navigationLinks = document.querySelectorAll(
@@ -29,7 +35,7 @@ export default class Navigation {
 
       hover.set(link, {
         transformOrigin: "center center -100px",
-        duration: 2,
+
         backfaceVisibility: "hidden",
       });
 

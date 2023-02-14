@@ -1,6 +1,7 @@
 .treatments__wrapper {
   background-color: $color-vulcan;
   color: $color-white;
+  padding: 4rem 0;
 }
 
 .treatments__header__wrapper {
@@ -13,6 +14,11 @@
   align-items: center;
   max-width: 70vw;
   margin: auto;
+
+  @include media("<phone") {
+    align-items: start;
+    margin: 0;
+  }
 }
 
 .treatments__title {
@@ -20,32 +26,11 @@
   margin-bottom: 7.5rem;
 }
 
-// .treatments__beard,
-// .treatments__facial,
-// .treatments__massage,
-// .treatments__home,
-// .treatments__hairCuts {
-//   display: none;
-// }
-
-.treatments__beard,
-.treatments__facials,
-.treatments__massage,
-.treatments__home,
-.treatments__hairCuts,
-.treatments__wash {
-  @extend %description-22;
-  padding: 15rem 4rem;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: start;
-  max-width: 70vw;
-  margin: auto;
+.inactive {
+  display: none;
 }
 
-.flex__active {
+.active {
   @extend %description-22;
   padding: 15rem 4rem;
   display: flex;

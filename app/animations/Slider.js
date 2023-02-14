@@ -17,19 +17,19 @@ export default class Slider {
   animateIn() {
     const imageTag = document.querySelector(".treatments__image");
     const titleTag = document.querySelector(".treatments__title");
-    const spClass = document.querySelector(".sp");
+    const active = document.querySelector(".active");
 
     const washSection = document.querySelector(".treatments__wash");
     const massageSection = document.querySelector(".treatments__massage");
     const homeSection = document.querySelector(".treatments__home");
-    const facialSection = document.querySelector(".treatments__facial");
+    const facialSection = document.querySelector(".treatments__facials");
     const beardSection = document.querySelector(".treatments__beard");
     const hairCutsSection = document.querySelector(".treatments__hairCuts");
 
     const nextTag = document.querySelector(".next__arrow");
     const backTag = document.querySelector(".back__arrow");
 
-    const images = [
+    const content = [
       {
         src: image01,
         text: washSection,
@@ -47,21 +47,26 @@ export default class Slider {
       },
       {
         src: image04,
+        text: beardSection,
+        title: "Beard",
+      },
+      {
+        src: image05,
         text: hairCutsSection,
         title: "Hair Cuts",
       },
-      // {
-      //   src: image05,
-      //   text: hairCutSection,
-      //   title: "Hair Cuts",
-      // },
+      {
+        src: image05,
+        text: facialSection,
+        title: "Facials",
+      },
     ];
 
     let index = 0;
     const next = function () {
       index = index + 1;
 
-      if (index > images.length - 1) {
+      if (index > content.length - 1) {
         index = 0;
       }
       update();
@@ -70,18 +75,20 @@ export default class Slider {
     const back = function () {
       index = index - 1;
       if (index < 0) {
-        index = images.length - 1;
+        index = content.length - 1;
       }
       update();
     };
 
     const update = function () {
-      titleTag.innerHTML = images[index].title;
-      titleTag.classList.add("reveal");
+      titleTag.innerHTML = content[index].title;
+      titleTag.classList.replace("inactive", "active");
+
+      active.innerHTML = content[index].text;
+      content[index].text.classList.replace("inactive", "active");
+
+      imageTag.setAttribute("src", content[index].src);
       animateOut();
-      spClass.innerHTML = images[index].text;
-      // images[index].text.classList.add("flex__active");
-      imageTag.setAttribute("src", images[index].src);
     };
     if (nextTag) {
       nextTag.addEventListener("click", (event) => {
@@ -101,15 +108,28 @@ export default class Slider {
       //   reveal: true,
       // });
 
-      GSAP.set(".reveal", {
+      GSAP.set("[reveal]", {
         transformOrigin: "center center -100px",
         duration: 2,
         backfaceVisibility: "hidden",
       });
 
-      GSAP.to(".reveal", {
+      GSAP.to("[reveal]", {
         rotationX: "360",
         stagger: 0.1,
+        ease: "expo.out",
+      });
+
+      GSAP.set(".active", {
+        transformOrigin: "center center -100px",
+        duration: 2,
+        backfaceVisibility: "hidden",
+      });
+
+      GSAP.to(".active", {
+        rotationX: "360",
+        stagger: 0.1,
+        ease: "expo.out",
       });
     };
   }

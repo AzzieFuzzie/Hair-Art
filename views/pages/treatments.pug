@@ -4,17 +4,12 @@ block variables
     - var template = 'treatments'
     
 block content
-    .treatments
+    .treatments 
+        include navigation
         .treatments__wrapper
-            include navigation
-
-            
-                //-  each section in treatments.data.body
-                //-     if section.id =="treatments_$105d72bb-6ae1-4c4e-a614-4d4c6b54358d" 
-          
             section.treatments__header__wrapper
     
-                h2.reveal.treatments__title  Wash &amp Blow Dry
+                h2.treatments__title(reveal)  Wash &amp Blow Dry
                 .treatments__wash__wrapper
                     <svg class="back__arrow" width="88" height="89" viewBox="0 0 88 89" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0.49999 44.0928C0.49999 20.0684 19.9756 0.592771 44 0.592771C68.0244 0.592771 87.5 20.0684 87.5 44.0928C87.5 68.1172 68.0244 87.5928 44 87.5928C19.9756 87.5928 0.49999 68.1172 0.49999 44.0928Z" stroke="#FAF5EF"/>
@@ -29,7 +24,7 @@ block content
                         <path d="M66.1074 44.1253L44.0004 56.2507L55.7908 44.1253L44.0004 32L66.1074 44.1253Z" fill="#FAF5EF"/>
                         <path d="M27 44H56.5" stroke="#FAF5EF" stroke-width="3"/>
                     </svg>
-            section.sp.treatments__wash
+            section.active.treatments__wash
                 .treatments__services
                     .treatments__col
                         .treatments__row
@@ -59,7 +54,7 @@ block content
                             .line__treatments
                     
 
-            section.treatments__massage
+            section.inactive.treatments__massage
                 .treatments__services
                     .treatments__col
                         .treatments__row
@@ -81,7 +76,7 @@ block content
                         .line__treatments
                         
 
-            section.treatments__home 
+            section.inactive.treatments__home 
                 .treatments__services
                     .treatments__col
                         .treatments__row
@@ -103,7 +98,7 @@ block content
                         .line__treatments
                 
                     
-            section.treatments__beard 
+            section.inactive.treatments__beard 
                 .treatments__services
                     .treatments__col
                         .treatments__row
@@ -150,7 +145,7 @@ block content
                             p.treatments__beard__price=assetsBeard[0][0].price
                         .line__treatments
 
-            section.treatments__hairCuts   
+            section.inactive.treatments__hairCuts   
                 .treatments__services
                     .treatments__col
                         .treatments__row
@@ -184,7 +179,7 @@ block content
                             p.treatments__hairCuts__price=assetsHairCuts[0][6].price
                         .line__treatments 
 
-            section.treatments__facials  
+            section.inactive.treatments__facials  
                .treatments__services
                     .treatments__col
                         .treatments__row
