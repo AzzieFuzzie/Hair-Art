@@ -76,7 +76,7 @@ export default class Slider {
 
         if (newIndex < 0) newIndex = slides.children.length - 1;
         if (newIndex >= slides.children.length) newIndex = 0;
-        activeTitle[newIndex].dataset.active = true;
+
         slides.children[newIndex].dataset.active = true;
 
         GSAP.set("[data-active]", {
