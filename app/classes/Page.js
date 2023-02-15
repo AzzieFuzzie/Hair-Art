@@ -2,7 +2,7 @@ import GSAP from "gsap";
 import Prefix from "prefix";
 
 import each from "lodash/each";
-import map from "lodash/map";
+// import map from "lodash/map";
 
 import Marquee from "../animations/Marquee";
 import Navigation from "../animations/Navigation";
@@ -58,14 +58,13 @@ export default class Page {
   }
 
   createAnimations() {
-    this.animationGallery = map(this.elements.animationGallery, (element) => {
-      return new Marquee({
-        element,
-      });
-    });
+    // this.animationGallery = map(this.elements.animationGallery, (element) => {
+    //   return new Marquee({
+    //     element,
+    //   });
+    // });
 
     this.navigation = new Navigation();
-    this.marquee = new Marquee();
 
     this.slider = new Slider();
   }
