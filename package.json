@@ -4,7 +4,7 @@
   "description": "A Barbershop Website",
   "type": "module",
   "scripts": {
-    "backend:build": "node babel app.js — out-file app-compiled.js",
+    "backend:build": "babel-node app.js",
     "backend:development": "nodemon  —exec babel-node app.js",
     "frontend:build": "webpack --progress --config webpack.config.build.cjs",
     "frontend:development": "webpack serve --progress --config webpack.config.development.cjs",
