@@ -16,7 +16,7 @@ export default class Slider {
 
   animateIn() {
     const imageTag = document.querySelector(".treatments__image");
-    const titleTag = document.querySelector(".treatments__title");
+
     const active = document.querySelector(".active");
 
     const washSection = document.querySelector(".treatments__wash");
@@ -26,7 +26,7 @@ export default class Slider {
     const beardSection = document.querySelector(".treatments__beard");
     const hairCutsSection = document.querySelector(".treatments__hairCuts");
 
-    const nextTag = document.querySelector(".next__arrow");
+    const button = document.querySelector(".next__arrow");
     const backTag = document.querySelector(".back__arrow");
 
     const content = [
@@ -62,75 +62,38 @@ export default class Slider {
       },
     ];
 
-    let index = 0;
-    const next = function () {
-      index = index + 1;
+    const buttons = document.querySelectorAll("[data-carousel-button]");
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const offset = button.dataset.carouselButton === "next" ? 1 : -1;
+        const slides = document
+          .querySelector("[data-carousel]")
+          .querySelector("[data-slides]");
 
-      if (index > content.length - 1) {
-        index = 0;
-      }
-      update();
-    };
+        const activeTitle = slides.querySelector("h2 [data-active]");
 
-    const back = function () {
-      index = index - 1;
-      if (index < 0) {
-        index = content.length - 1;
-      }
-      update();
-    };
+        let newIndex = [...slides.children].indexOf(activeSlide) + offset;
 
-    const update = function () {
-      titleTag.innerHTML = content[index].title;
-      titleTag.classList.replace("inactive", "active");
+        if (newIndex < 0) newIndex = slides.children.length - 1;
+        if (newIndex >= slides.children.length) newIndex = 0;
+        activeTitle[newIndex].dataset.active = true;
+        slides.children[newIndex].dataset.active = true;
 
-      active.innerHTML = content[index].text;
-      content[index].text.classList.replace("inactive", "active");
+        GSAP.set("[data-active]", {
+          transformOrigin: "center center -100px",
+          duration: 2,
+          backfaceVisibility: "hidden",
+        });
 
-      imageTag.setAttribute("src", content[index].src);
-      animateOut();
-    };
-    if (nextTag) {
-      nextTag.addEventListener("click", (event) => {
-        event.preventDefault();
-        next();
+        GSAP.to("[data-active]", {
+          rotationX: "360",
+          opacity: 1,
+          stagger: 0.5,
+          ease: "expo.out",
+        });
+
+        delete activeSlide.dataset.active;
       });
-    }
-
-    if (backTag) {
-      backTag.addEventListener("click", (event) => {
-        event.preventDefault();
-        back();
-      });
-    }
-    const animateOut = function () {
-      // splt({
-      //   reveal: true,
-      // });
-
-      GSAP.set("[reveal]", {
-        transformOrigin: "center center -100px",
-        duration: 2,
-        backfaceVisibility: "hidden",
-      });
-
-      GSAP.to("[reveal]", {
-        rotationX: "360",
-        stagger: 0.1,
-        ease: "expo.out",
-      });
-
-      GSAP.set(".active", {
-        transformOrigin: "center center -100px",
-        duration: 2,
-        backfaceVisibility: "hidden",
-      });
-
-      GSAP.to(".active", {
-        rotationX: "360",
-        stagger: 0.1,
-        ease: "expo.out",
-      });
-    };
+    });
   }
 }

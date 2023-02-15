@@ -21,16 +21,17 @@
   }
 }
 
-.treatments__title {
+.treatments__title[data-active] {
   @extend %title-140;
   margin-bottom: 7.5rem;
 }
 
 .inactive {
+  opacity: 0;
   display: none;
 }
 
-.active {
+.sp[data-active] {
   @extend %description-22;
   padding: 15rem 4rem;
   display: flex;
