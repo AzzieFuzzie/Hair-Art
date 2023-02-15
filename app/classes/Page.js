@@ -2,9 +2,9 @@ import GSAP from "gsap";
 import Prefix from "prefix";
 
 import each from "lodash/each";
-// import map from "lodash/map";
+import map from "lodash/map";
 
-import Marquee from "../animations/Marquee";
+// import Marquee from "../animations/Marquee";
 import Navigation from "../animations/Navigation";
 import Slider from "../animations/Slider";
 
