@@ -1,7 +1,4 @@
 import GSAP from "gsap";
-import Animation from "../classes/Animation";
-
-// import splt from "spltjs";
 
 import image01 from "../images/image01.jpg";
 import image02 from "../images/image02.jpg";
@@ -15,9 +12,8 @@ export default class Slider {
   }
 
   animateIn() {
+    const titleTag = document.querySelector(".treatments__title");
     const imageTag = document.querySelector(".treatments__image");
-
-    const active = document.querySelector(".active");
 
     const washSection = document.querySelector(".treatments__wash");
     const massageSection = document.querySelector(".treatments__massage");
@@ -78,6 +74,8 @@ export default class Slider {
         if (newIndex >= slides.children.length) newIndex = 0;
 
         slides.children[newIndex].dataset.active = true;
+        imageTag.setAttribute.src = content[newIndex].src;
+        titleTag.innerHTML = content[newIndex].title;
 
         GSAP.set("[data-active]", {
           transformOrigin: "center center -100px",
