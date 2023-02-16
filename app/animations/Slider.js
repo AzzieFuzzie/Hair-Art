@@ -27,17 +27,17 @@ export default class Slider {
 
     const content = [
       {
-        src: image01,
+        src: image04,
         text: washSection,
         title: "Wash & Blow Dry",
       },
       {
-        src: image02,
+        src: image04,
         text: massageSection,
         title: "Massage",
       },
       {
-        src: image03,
+        src: image04,
         text: homeSection,
         title: "Home Service",
       },
@@ -47,12 +47,12 @@ export default class Slider {
         title: "Beard",
       },
       {
-        src: image05,
+        src: image04,
         text: hairCutsSection,
         title: "Hair Cuts",
       },
       {
-        src: image05,
+        src: image04,
         text: facialSection,
         title: "Facials",
       },
@@ -74,7 +74,7 @@ export default class Slider {
         if (newIndex >= slides.children.length) newIndex = 0;
 
         slides.children[newIndex].dataset.active = true;
-        imageTag.setAttribute.src = content[newIndex].src;
+        imageTag.setAttribute("src", content[newIndex].src);
         titleTag.innerHTML = content[newIndex].title;
 
         GSAP.set("[data-active]", {
