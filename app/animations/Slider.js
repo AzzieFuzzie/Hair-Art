@@ -70,7 +70,7 @@ export default class Slider {
           .querySelector("[data-carousel]")
           .querySelector("[data-slides]");
 
-        const activeTitle = slides.querySelector("h2 [data-active]");
+        const activeSlide = slides.querySelector("[data-active]");
 
         let newIndex = [...slides.children].indexOf(activeSlide) + offset;
 
