@@ -54,7 +54,7 @@ export default class Slider {
       {
         src: image04,
         text: facialSection,
-        title: "Facials",
+        title: "Facials & Wax",
       },
     ];
 
