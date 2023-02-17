@@ -19,12 +19,15 @@ export default class Navigation {
       ease: "expo.out",
     });
 
-    navigationButton.addEventListener("click", doCoolStuff);
-
-    function doCoolStuff() {
-      // navigationButton.innerHTML = closeButton;
-      tl.reversed() ? tl.play() : tl.reverse();
+    function open() {
+      tl.play();
     }
+
+    function close() {
+      tl.reverse();
+    }
+    navigationButton.addEventListener("click", open);
+    closeButton.addEventListener("click", close);
   }
   animateOut() {
     const navigationLinks = document.querySelectorAll(

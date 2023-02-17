@@ -13,10 +13,15 @@
 
 .navigation {
   opacity: 0;
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   padding: 3rem 4rem;
 
-  display: none;
-  overflow-y: hidden;
   grid-template-columns: repeat(5, 1fr);
   background-color: $color-vulcan;
   color: $color-white;
@@ -44,7 +49,7 @@ nav.navigation {
 .navigation__close {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 4rem;
 }
 
 .navigation__image {

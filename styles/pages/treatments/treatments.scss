@@ -31,10 +31,11 @@
   display: none;
 }
 
-.sp[data-active] {
+.inactive[data-active] {
   @extend %description-22;
   padding: 15rem 4rem;
   display: flex;
+  opacity: 1;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;

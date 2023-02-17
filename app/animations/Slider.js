@@ -85,8 +85,6 @@ export default class Slider {
 
         GSAP.to("[data-active]", {
           rotationX: "360",
-          opacity: 1,
-          stagger: 0.5,
           ease: "expo.out",
         });
 
