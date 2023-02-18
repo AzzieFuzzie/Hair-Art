@@ -4,7 +4,7 @@ import Prefix from "prefix";
 import each from "lodash/each";
 import map from "lodash/map";
 
-// import Marquee from "../animations/Marquee";
+import Marquee from "../animations/Marquee";
 import Navigation from "../animations/Navigation";
 import Slider from "../animations/Slider";
 
@@ -65,7 +65,7 @@ export default class Page {
     // });
 
     this.navigation = new Navigation();
-
+    this.marquee = new Marquee();
     this.slider = new Slider();
   }
 
@@ -111,13 +111,11 @@ export default class Page {
   }
 
   onResize() {
-    if (this.elements.wrapper) {
-      this.scroll.limit =
-        this.elements.wrapper.clientHeight - window.innerHeight;
-    }
+    this.scroll.limit = this.elements.wrapper.clientHeight - window.innerHeight;
   }
 
   update() {
+    this.onResize();
     this.scroll.target = GSAP.utils.clamp(
       0,
       this.scroll.limit,
