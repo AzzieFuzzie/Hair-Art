@@ -115,6 +115,17 @@ export default class Page {
   }
 
   update() {
+    const navigationWrapper = document.querySelector(".navigation__wrapper");
+    const navigationButton = document.querySelector(".navigation__bar__button");
+    const closeButton = document.querySelector(".navigation__close");
+
+    navigationButton.onclick = function () {
+      this.scroll.limit = navigationWrapper.clientHeight;
+      console.log(navigationWrapper.clientHeight);
+    };
+
+    closeButton.onclick = this.onResize();
+
     this.onResize();
     this.scroll.target = GSAP.utils.clamp(
       0,

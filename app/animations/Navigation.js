@@ -10,6 +10,7 @@ export default class Navigation {
   animateIn() {
     const navigationButton = document.querySelector(".navigation__bar__button");
     const closeButton = document.querySelector(".navigation__close");
+    const body = document.querySelector("body");
 
     let tl = GSAP.timeline({ paused: true });
 
@@ -21,10 +22,14 @@ export default class Navigation {
 
     function open() {
       tl.play();
+
+      body.classList.add("hide");
     }
 
     function close() {
       tl.reverse();
+
+      body.classList.remove("hide");
     }
     navigationButton.addEventListener("click", open);
     closeButton.addEventListener("click", close);

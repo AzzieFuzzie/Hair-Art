@@ -27,6 +27,10 @@ body {
   overflow: hidden;
 }
 
+body.hide {
+  overflow: hidden;
+}
+
 a {
   color: inherit;
   outline: none;
