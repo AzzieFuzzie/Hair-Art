@@ -21,15 +21,13 @@ export default class Navigation {
     });
 
     function open() {
-      tl.play();
-
       body.classList.add("hide");
+      tl.play();
     }
 
     function close() {
-      tl.reverse();
-
       body.classList.remove("hide");
+      tl.reverse();
     }
     navigationButton.addEventListener("click", open);
     closeButton.addEventListener("click", close);
