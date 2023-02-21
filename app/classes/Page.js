@@ -3,7 +3,7 @@ import Prefix from "prefix";
 
 import each from "lodash/each";
 
-import Marquee from "../animations/Marquee.js";
+import InfiniteMarquee from "../animations/InfiniteMarquee.js";
 import Slider from "../animations/Slider.js";
 
 export default class Page {
@@ -65,7 +65,7 @@ export default class Page {
     //   });
     // });
 
-    this.marquee = new Marquee();
+    this.marquee = new InfiniteMarquee();
     this.slider = new Slider();
   }
 

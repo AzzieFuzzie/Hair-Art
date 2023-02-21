@@ -1,6 +1,6 @@
 import GSAP from "gsap";
 
-export default class Marquee {
+export default class InfiniteMarquee {
   constructor() {
     this.animateIn();
   }
