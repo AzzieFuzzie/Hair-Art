@@ -1,5 +1,4 @@
 import GSAP from "gsap";
-import Animation from "../classes/Animation";
 
 export default class Navigation {
   constructor() {

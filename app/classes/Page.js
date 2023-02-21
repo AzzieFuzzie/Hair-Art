@@ -5,7 +5,6 @@ import each from "lodash/each";
 import map from "lodash/map";
 
 import Marquee from "../animations/Marquee";
-import Navigation from "../animations/Navigation";
 import Slider from "../animations/Slider";
 
 export default class Page {
@@ -23,6 +22,9 @@ export default class Page {
     this.transformPrefix = Prefix("transform");
 
     this.onMouseWheelEvent = this.onMouseWheel.bind(this);
+    this.onMouseWheelEvent = this.onMouseWheel.bind(this);
+
+    this.navigationListener();
   }
 
   create() {
@@ -64,7 +66,6 @@ export default class Page {
     //   });
     // });
 
-    this.navigation = new Navigation();
     this.marquee = new Marquee();
     this.slider = new Slider();
   }
@@ -152,9 +153,25 @@ export default class Page {
 
   addEventListeners() {
     window.addEventListener("mousewheel", this.onMouseWheelEvent);
+
+    window.addEventListener("touchstart", this.onTouchDown.bind(this));
+    window.addEventListener("touchmove", this.onTouchMove.bind(this));
+    window.addEventListener("touchend", this.onTouchUp.bind(this));
   }
 
   removeEventListeners() {
     window.removeEventListener("mousewheel", this.onMouseWheelEvent);
+  }
+
+  navigationListener() {
+    const navigationButton = document.querySelector(".navigation__bar__button");
+    navigationButton.addEventListener("click", () => {
+      window.removeEventListener("mousewheel", this.onMouseWheelEvent);
+    });
+
+    const closeButton = document.querySelector(".navigation__close");
+    closeButton.addEventListener("click", () => {
+      window.addEventListener("mousewheel", this.onMouseWheelEvent);
+    });
   }
 }

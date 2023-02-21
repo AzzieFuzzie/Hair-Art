@@ -12,6 +12,7 @@
 }
 
 .navigation {
+  @extend %cover;
   opacity: 0;
   display: none;
   overflow: hidden;
@@ -21,7 +22,7 @@
   right: 0;
   bottom: 0;
   padding: 3rem 4rem;
-
+  z-index: z("navigation");
   grid-template-columns: repeat(5, 1fr);
   background-color: $color-vulcan;
   color: $color-white;

@@ -5,18 +5,24 @@ import Home from "pages/Home/index.js";
 import About from "pages/About/index.js";
 import Contact from "pages/Contact/index.js";
 import Treatments from "pages/Treatments/index.js";
+import Navigation from "./components/Navigation";
 
 class App {
   constructor() {
     this.createContent();
 
     // this.createCanvas();
+    this.createNavigation();
     this.createPages();
 
     this.onResize();
 
     this.addEventListeners();
     this.update();
+  }
+
+  createNavigation() {
+    this.navigation = new Navigation();
   }
 
   createContent() {
@@ -95,7 +101,14 @@ class App {
    */
 
   addEventListeners() {
-    window.addEventListener("resize", this.onResize.bind(this));
+    // window.addEventListener("mousewheel", this.onWheel.bind(this));
+    // window.addEventListener("mousedown", this.onTouchDown.bind(this));
+    // window.addEventListener("mousemove", this.onTouchMove.bind(this));
+    // window.addEventListener("mouseup", this.onTouchUp.bind(this));
+    // window.addEventListener("touchstart", this.onTouchDown.bind(this));
+    // window.addEventListener("touchmove", this.onTouchMove.bind(this));
+    // window.addEventListener("touchend", this.onTouchUp.bind(this));
+    // window.addEventListener("resize", this.onResize.bind(this));
   }
 
   addLinkListeners() {
@@ -106,8 +119,7 @@ class App {
         event.preventDefault();
 
         const { href } = link;
-        console.log(href);
-        this.onChange(href);
+        this.onChange({ url: href });
       };
     });
   }

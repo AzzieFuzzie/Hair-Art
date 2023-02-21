@@ -17,9 +17,9 @@
   @include media("<phone") {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
-      "title  img"
-      " img_1  img"
-      "description description ";
+      "title  "
+      " img_1  "
+      "description  ";
   }
 }
 .about__hero__title {
@@ -28,6 +28,10 @@
   grid-area: title;
   justify-self: end;
   text-align: right;
+
+  @include media("<phone") {
+    text-align: left;
+  }
 }
 .about__hero__description {
   text-indent: 20%;
@@ -37,6 +41,9 @@
 .about__hero__image {
   grid-area: img;
   justify-self: start;
+  @include media("<phone") {
+    display: none;
+  }
 }
 .about__hero__image__1 {
   grid-area: img_1;
@@ -81,6 +88,10 @@
 .about__barbers__description__1 {
   grid-area: description_1;
   @extend %description-32;
+
+  @include media("<phone") {
+    margin: 1.5rem 0;
+  }
 }
 .about__barbers__image__2 {
   grid-area: img_2;
@@ -116,6 +127,10 @@
 .about__barbershop__description__2 {
   grid-area: description_2;
   @extend %description-32;
+
+  @include media("<phone") {
+    margin-bottom: 1.5rem;
+  }
 }
 .about__barbershop__image__5 {
   grid-area: img_5;
@@ -126,4 +141,8 @@
   grid-area: description_3;
   @extend %description-32;
   justify-self: end;
+
+  @include media("<phone") {
+    margin-top: 1.5rem;
+  }
 }
