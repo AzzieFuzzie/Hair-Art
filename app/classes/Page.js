@@ -154,9 +154,9 @@ export default class Page {
   addEventListeners() {
     window.addEventListener("mousewheel", this.onMouseWheelEvent);
 
-    window.addEventListener("touchstart", this.onTouchDown.bind(this));
-    window.addEventListener("touchmove", this.onTouchMove.bind(this));
-    window.addEventListener("touchend", this.onTouchUp.bind(this));
+    // window.addEventListener("touchstart", this.onTouchDown.bind(this));
+    // window.addEventListener("touchmove", this.onTouchMove.bind(this));
+    // window.addEventListener("touchend", this.onTouchUp.bind(this));
   }
 
   removeEventListeners() {
