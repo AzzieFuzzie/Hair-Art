@@ -3,8 +3,8 @@ import Prefix from "prefix";
 
 import each from "lodash/each";
 
-import Marquee from "../animations/Marquee";
-import Slider from "../animations/Slider";
+import Marquee from "../animations/Marquee.js";
+import Slider from "../animations/Slider.js";
 
 export default class Page {
   constructor({ element, elements, id }) {
