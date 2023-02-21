@@ -57,8 +57,11 @@
   padding: 1.5rem;
 }
 
-.footer__wrapper ul li {
+[link] {
   @extend %link__animation;
+}
+
+.footer__wrapper ul li {
   margin: 1.5rem 0;
 }
 

@@ -7,8 +7,8 @@ export default class Marquee {
 
   animateIn() {
     const menu = document.querySelector(".menu");
-    const items = document.querySelectorAll(".menu--item");
-    const images = document.querySelectorAll(".menu--item img");
+    const items = document.querySelectorAll(".menu__item");
+    const images = document.querySelectorAll(".menu__item img");
 
     if (menu) {
       /*--------------------

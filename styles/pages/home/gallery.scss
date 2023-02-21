@@ -10,7 +10,7 @@
     cursor: grabbing;
   }
 
-  &--wrapper {
+  &__wrapper {
     counter-reset: count;
     display: flex;
     position: absolute;
@@ -21,7 +21,7 @@
     width: 100%;
   }
 
-  &--item {
+  &__item {
     counter-increment: count;
     position: absolute;
     z-index: 1;
