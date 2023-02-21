@@ -2,7 +2,6 @@ import GSAP from "gsap";
 import Prefix from "prefix";
 
 import each from "lodash/each";
-import map from "lodash/map";
 
 import Marquee from "../animations/Marquee";
 import Slider from "../animations/Slider";

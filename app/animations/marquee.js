@@ -6,18 +6,18 @@ export default class Marquee {
   }
 
   animateIn() {
-    const $menu = document.querySelector(".menu");
-    const $items = document.querySelectorAll(".menu--item");
-    const $images = document.querySelectorAll(".menu--item img");
+    const menu = document.querySelector(".menu");
+    const items = document.querySelectorAll(".menu--item");
+    const images = document.querySelectorAll(".menu--item img");
 
-    if ($menu) {
+    if (menu) {
       /*--------------------
 Vars
 --------------------*/
 
-      let menuWidth = $menu.clientWidth;
-      let itemWidth = $items[0].clientWidth;
-      let wrapWidth = $items.length * itemWidth;
+      let menuWidth = menu.clientWidth;
+      let itemWidth = items[0].clientWidth;
+      let wrapWidth = items.length * itemWidth;
 
       let scrollSpeed = 0;
       let oldScrollY = 0;
@@ -35,7 +35,7 @@ Lerp
 Dispose
 --------------------*/
       const dispose = (scroll) => {
-        GSAP.set($items, {
+        GSAP.set(items, {
           x: (i) => {
             return i * itemWidth + scroll;
           },
@@ -69,7 +69,7 @@ Touch
       const handleTouchStart = (e) => {
         touchStart = e.clientX || e.touches[0].clientX;
         isDragging = true;
-        $menu.classList.add("is-dragging");
+        menu.classList.add("is-dragging");
       };
       const handleTouchMove = (e) => {
         if (!isDragging) return;
@@ -79,24 +79,24 @@ Touch
       };
       const handleTouchEnd = () => {
         isDragging = false;
-        $menu.classList.remove("is-dragging");
+        menu.classList.remove("is-dragging");
       };
 
       /*--------------------
 Listeners
 --------------------*/
-      $menu.addEventListener("mousewheel", handleMouseWheel);
+      menu.addEventListener("mousewheel", handleMouseWheel);
 
-      $menu.addEventListener("touchstart", handleTouchStart);
-      $menu.addEventListener("touchmove", handleTouchMove);
-      $menu.addEventListener("touchend", handleTouchEnd);
+      menu.addEventListener("touchstart", handleTouchStart);
+      menu.addEventListener("touchmove", handleTouchMove);
+      menu.addEventListener("touchend", handleTouchEnd);
 
-      $menu.addEventListener("mousedown", handleTouchStart);
-      $menu.addEventListener("mousemove", handleTouchMove);
-      $menu.addEventListener("mouseleave", handleTouchEnd);
-      $menu.addEventListener("mouseup", handleTouchEnd);
+      menu.addEventListener("mousedown", handleTouchStart);
+      menu.addEventListener("mousemove", handleTouchMove);
+      menu.addEventListener("mouseleave", handleTouchEnd);
+      menu.addEventListener("mouseup", handleTouchEnd);
 
-      $menu.addEventListener("selectstart", () => {
+      menu.addEventListener("selectstart", () => {
         return false;
       });
 
@@ -104,9 +104,9 @@ Listeners
 Resize
 --------------------*/
       window.addEventListener("resize", () => {
-        menuWidth = $menu.clientWidth;
-        itemWidth = $items[0].clientWidth;
-        wrapWidth = $items.length * itemWidth;
+        menuWidth = menu.clientWidth;
+        itemWidth = items[0].clientWidth;
+        wrapWidth = items.length * itemWidth;
       });
 
       /*--------------------
@@ -120,7 +120,7 @@ Render
         scrollSpeed = y - oldScrollY;
         oldScrollY = y;
 
-        GSAP.to($items, {
+        GSAP.to(items, {
           skewX: -scrollSpeed * 0.2,
           rotate: scrollSpeed * 0.01,
           scale: 1 - Math.min(100, Math.abs(scrollSpeed)) * 0.003,
