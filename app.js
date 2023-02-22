@@ -4,6 +4,7 @@ import express from "express";
 import * as prismicH from "@prismicio/helpers";
 import { client } from "./config/prismicConfig.js";
 import bodyParser from "body-parser";
+import UAParser from "ua-parser-js";
 
 // import { forEach } from "lodash";
 
@@ -17,6 +18,16 @@ app.use(express.static("public"));
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
+  // console.log(res.isDesktop, res.isPhone, res.isTablet);
+  /** {
+  "ua": "",
+  "browser": {},
+  "engine": {},
+  "os": {},
+  "device": {},
+  "cpu": {}
+} */
+
   res.locals.ctx = {
     prismicH,
   };
@@ -54,7 +65,6 @@ const handleRequest = async () => {
       assets.push(section.items[1]);
       assets.push(section.items[2]);
       assets.push(section.items[3]);
-      console.log(assets[5].gallery_image.url);
     }
   });
 
@@ -107,6 +117,15 @@ const handleRequest = async () => {
 };
 
 app.get("/", async (req, res) => {
+  let parser = new UAParser("user-agent"); // you need to pass the user-agent for nodejs
+  console.log(parser);
+
+  let deviceType = parser.getDevice().type;
+  console.log(deviceType);
+
+  res.locals.isDesktop = deviceType === undefined;
+  res.locals.isPhone = deviceType === "mobile";
+  res.locals.isTablet = deviceType === "tablet";
   const defaults = await handleRequest();
   res.render("pages/home", { ...defaults });
 });

@@ -21,9 +21,6 @@ export default class Page {
 
     this.transformPrefix = Prefix("transform");
 
-    const smoothScroll = Detection.isDesktop()
-      ? this.update()
-      : console.log("mobile");
     this.onMouseWheelEvent = this.onMouseWheel.bind(this);
 
     this.navigationListener();
