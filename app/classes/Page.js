@@ -2,6 +2,7 @@ import GSAP from "gsap";
 import Prefix from "prefix";
 
 import each from "lodash/each";
+import Detection from "./Detection";
 
 import InfiniteMarquee from "../animations/InfiniteMarquee.js";
 import Slider from "../animations/Slider.js";
@@ -20,9 +21,10 @@ export default class Page {
 
     this.transformPrefix = Prefix("transform");
 
+    const smoothScroll = Detection.isDesktop()
+      ? this.update()
+      : console.log("mobile");
     this.onMouseWheelEvent = this.onMouseWheel.bind(this);
-    this.onTouchDownEvent = this.onTouchDown.bind(this);
-    this.onTouchUpEvent = this.onTouchDown.bind(this);
 
     this.navigationListener();
   }
@@ -127,6 +129,8 @@ export default class Page {
     this.scroll.limit = this.elements.wrapper.clientHeight - window.innerHeight;
   }
 
+  // updateY
+
   update() {
     const navigationWrapper = document.querySelector(".navigation__wrapper");
     const navigationButton = document.querySelector(".navigation__bar__button");
@@ -165,10 +169,6 @@ export default class Page {
 
   addEventListeners() {
     window.addEventListener("mousewheel", this.onMouseWheelEvent);
-
-    window.addEventListener("touchstart", this.onTouchDownEvent.bind(this));
-    window.addEventListener("touchmove", this.onTouchMove.bind(this));
-    window.addEventListener("touchend", this.onTouchUpEvent.bind(this));
   }
 
   removeEventListeners() {
