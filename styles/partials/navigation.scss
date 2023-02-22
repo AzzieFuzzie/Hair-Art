@@ -32,14 +32,16 @@
   z-index: 2;
   grid-template-areas:
     "img . navigation img_1 img_1"
-    ". text_1 . text_2 text_2";
+    ". text_1 . text_2 text_2"
+    ". text_3 . . .";
 
   @include media("<phone") {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
       "navigation navigation"
       "text_1 img"
-      "text_2 text_2";
+      "text_2 text_2"
+      "text_3 text_3";
   }
 }
 
@@ -84,6 +86,17 @@ nav.navigation {
     align-self: center;
   }
 }
+
+.nav__snapscan__text__1 {
+  @extend %description-22;
+  grid-area: text_3;
+  align-self: start;
+
+  @include media("<phone") {
+    align-self: center;
+  }
+}
+
 .nav__time__wrapper {
   @extend %description-22;
   grid-area: text_2;
