@@ -18,15 +18,15 @@ app.use(express.static("public"));
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-  // console.log(res.isDesktop, res.isPhone, res.isTablet);
-  /** {
-  "ua": "",
-  "browser": {},
-  "engine": {},
-  "os": {},
-  "device": {},
-  "cpu": {}
-} */
+  let parser = new UAParser("user-agent");
+  console.log(parser);
+
+  let device = parser.getDevice();
+  console.log(device);
+
+  res.locals.isDesktop = device === undefined;
+  res.locals.isPhone = device === "mobile";
+  res.locals.isTablet = device === "tablet";
 
   res.locals.ctx = {
     prismicH,
@@ -117,15 +117,6 @@ const handleRequest = async () => {
 };
 
 app.get("/", async (req, res) => {
-  let parser = new UAParser("user-agent"); // you need to pass the user-agent for nodejs
-  console.log(parser);
-
-  let deviceType = parser.getDevice().type;
-  console.log(deviceType);
-
-  res.locals.isDesktop = deviceType === undefined;
-  res.locals.isPhone = deviceType === "mobile";
-  res.locals.isTablet = deviceType === "tablet";
   const defaults = await handleRequest();
   res.render("pages/home", { ...defaults });
 });

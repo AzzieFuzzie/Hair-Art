@@ -41,13 +41,16 @@
 .about__hero__image {
   grid-area: img;
   justify-self: start;
+  margin-left: -2.5rem;
   @include media("<phone") {
     display: none;
   }
+  z-index: -1;
 }
 .about__hero__image__1 {
   grid-area: img_1;
   justify-self: start;
+  margin-top: -5rem;
 }
 .line__about__barbers {
   @extend %line;
@@ -58,6 +61,7 @@
   background-color: $color-vulcan;
   color: $color-white;
   padding: 15rem 4rem;
+  margin: -1;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1.5rem;
@@ -107,6 +111,7 @@
   background-color: $color-vulcan;
   color: $color-white;
   padding: 15rem 4rem;
+  margin: -1;
   display: grid;
   gap: 1.5rem;
   grid-template-areas:
