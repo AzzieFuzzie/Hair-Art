@@ -78,7 +78,7 @@ nav.navigation {
   @extend %link__animation;
 }
 
-.nav__booking__text {
+.nav__text {
   @extend %description-22;
   grid-area: text_1;
 
@@ -87,11 +87,9 @@ nav.navigation {
   }
 }
 
+.nav__booking__text,
 .nav__snapscan__text__1 {
   @extend %description-22;
-  grid-area: text_3;
-  align-self: start;
-
   @include media("<phone") {
     align-self: center;
   }

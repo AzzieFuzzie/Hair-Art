@@ -10,10 +10,11 @@
     "img line_1 line_1 line_1 line_1"
     "img text text_1 text_1 text_1"
     "img text_3 text_4 . .";
-  padding: 15rem 4rem;
+  padding: 4rem 4rem;
   gap: 1.5rem;
   background-color: $color-vulcan;
   color: $color-white;
+  height: 100vh;
   @include media("<phone") {
     grid-template-areas:
       "img"
