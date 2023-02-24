@@ -115,7 +115,7 @@ nav.navigation {
   display: flex;
 
   // column-gap: 1.5rem;
-  // justify-self: center;
+  justify-content: space-evenly;
 
   @include media("<phone") {
     justify-content: space-between;
