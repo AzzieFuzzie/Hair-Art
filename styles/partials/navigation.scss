@@ -99,9 +99,14 @@ nav.navigation {
 .nav__booking__text,
 .nav__snapscan__text__1 {
   @extend %description-22;
+
   @include media("<phone") {
     align-self: center;
   }
+}
+
+.nav__booking__text {
+  margin-bottom: 1.5rem;
 }
 
 .nav__time__wrapper {
