@@ -1,6 +1,6 @@
 import each from "lodash/each";
 import Canvas from "components/Canvas/index.js";
-import DetectionManager from "./classes/Detection";
+import Detection from "classes/Detection";
 
 import Home from "pages/Home/index.js";
 import About from "pages/About/index.js";
@@ -18,8 +18,14 @@ class App {
 
     this.onResize();
 
+    this.detect();
+
     this.addEventListeners();
-    DetectionManager.isMobile() === true
+  }
+
+  detect() {
+    console.log(Detection.isMobile());
+    const mobile = Detection.isMobile()
       ? console.log("Mobile detection")
       : this.update();
   }

@@ -57,6 +57,12 @@ nav.navigation {
 
 .navigation__image {
   grid-area: img;
+
+  @include media("<phone") {
+    max-width: 10rem;
+    justify-self: center;
+    align-self: start;
+  }
 }
 
 .navigation__image__1 {
@@ -72,6 +78,10 @@ nav.navigation {
 .navigation__list {
   grid-area: navigation;
   justify-self: center;
+
+  @include media("<phone") {
+    justify-self: start;
+  }
 }
 
 .navigation__list__link {
@@ -83,7 +93,7 @@ nav.navigation {
   grid-area: text_1;
 
   @include media("<phone") {
-    align-self: center;
+    align-self: start;
   }
 }
 
@@ -101,6 +111,10 @@ nav.navigation {
   display: flex;
   column-gap: 1.5rem;
   justify-self: center;
+
+  @include media("<phone") {
+    justify-self: start;
+  }
 }
 
 .nav__time__wrapper ul li {
