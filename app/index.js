@@ -1,6 +1,6 @@
 import each from "lodash/each";
 import Canvas from "components/Canvas/index.js";
-import Detection from "./classes/Detection";
+import DetectionManager from "./classes/Detection";
 
 import Home from "pages/Home/index.js";
 import About from "pages/About/index.js";
@@ -19,8 +19,8 @@ class App {
     this.onResize();
 
     this.addEventListeners();
-    const smoothScroll = Detection.isPhone()
-      ? console.log("Phone detection")
+    DetectionManager.isMobile() === true
+      ? console.log("Mobile detection")
       : this.update();
   }
 

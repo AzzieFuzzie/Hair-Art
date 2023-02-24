@@ -1,12 +1,13 @@
 class Detection {
-  isPhone() {
-    if (this.isPhoneChecked) {
-      this.isPhoneChecked = true;
+  isMobile() {
+    if (this.isMobileChecked) {
+      this.isMobileChecked = true;
 
-      this.isPhoneCheck = document.documentElement.classList.contains("phone");
+      this.isMobileCheck =
+        document.documentElement.classList.contains("mobile");
     }
 
-    return this.isPhoneCheck;
+    return this.isMobileCheck;
   }
 
   isDesktop() {

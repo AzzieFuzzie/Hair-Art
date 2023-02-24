@@ -18,15 +18,15 @@ app.use(express.static("public"));
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-  let parser = new UAParser("user-agent");
-  console.log(parser);
+  let ua = UAParser(req.headers["user-agent"]);
+  console.log(ua);
 
-  let device = parser.getDevice();
+  let device = ua.device;
   console.log(device);
 
-  res.locals.isDesktop = device === undefined;
-  res.locals.isPhone = device === "mobile";
-  res.locals.isTablet = device === "tablet";
+  res.locals.isDesktop = ua.device.type === undefined;
+  res.locals.isMobile = ua.device.type === "mobile";
+  res.locals.isTablet = ua.device.type === "tablet";
 
   res.locals.ctx = {
     prismicH,
