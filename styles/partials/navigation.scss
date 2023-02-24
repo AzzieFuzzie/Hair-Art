@@ -58,7 +58,7 @@ nav.navigation {
   grid-area: img;
 
   @include media("<phone") {
-    max-width: 10rem;
+    max-width: 15rem;
     justify-self: center;
     align-self: start;
   }
