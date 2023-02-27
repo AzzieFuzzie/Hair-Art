@@ -16,18 +16,16 @@ class App {
     this.createNavigation();
     this.createPages();
 
+    this.addEventListeners();
+
     this.onResize();
 
     this.detect();
-
-    this.addEventListeners();
   }
 
   detect() {
-    console.log(Detection.isMobile());
-    const mobile = Detection.isMobile()
-      ? console.log("Mobile detection")
-      : this.update();
+    const mobile = Detection.isMobile() ? console.log("Mobile") : this.update();
+    console.log(mobile, "is this mobile");
   }
 
   createNavigation() {
@@ -117,7 +115,7 @@ class App {
     // window.addEventListener("touchstart", this.onTouchDown.bind(this));
     // window.addEventListener("touchmove", this.onTouchMove.bind(this));
     // window.addEventListener("touchend", this.onTouchUp.bind(this));
-    // window.addEventListener("resize", this.onResize.bind(this));
+    window.addEventListener("resize", this.onResize.bind(this));
   }
 
   addLinkListeners() {

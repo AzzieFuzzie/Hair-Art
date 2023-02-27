@@ -11,6 +11,12 @@
   font-family: $font-rye;
 }
 
+.navigation__bar__button {
+  @include media("<phone") {
+    scale: 0.45;
+  }
+}
+
 .navigation {
   @extend %cover;
   opacity: 0;
