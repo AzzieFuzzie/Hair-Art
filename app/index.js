@@ -24,7 +24,7 @@ class App {
   }
 
   detect() {
-    const mobile = Detection.isMobile() ? console.log("Mobile") : this.update();
+    const mobile = Detection.isMobile() ? this.onResize() : this.update();
   }
 
   createNavigation() {

@@ -35,6 +35,10 @@
 .contact__hero__image {
   grid-area: img;
   margin-right: 10rem;
+
+  @include media("<phone") {
+    max-width: 100%;
+  }
 }
 
 .contact__hero__text {
@@ -71,24 +75,29 @@
     grid-template-areas:
       "description_1"
       "img_1";
-
-    .contact__map__image__1 {
-      grid-area: img_1;
-      justify-self: center;
-    }
-    .contact__map__description__1 {
-      grid-area: description_1;
-      align-self: center;
-    }
   }
 }
+
 .contact__map__image__1 {
   grid-area: img_1;
-  justify-self: end;
+  justify-self: center;
+  @include media("<phone") {
+    justify-self: start;
+    max-width: 70%;
+  }
+}
+
+.contact__map__image__1 img {
+  @include media("<phone") {
+    max-width: 100%;
+  }
 }
 .contact__map__description__1 {
   grid-area: description_1;
-  align-self: end;
+
+  @include media("<phone") {
+    max-width: 100%;
+  }
 }
 .line__contact {
   @extend %line;
