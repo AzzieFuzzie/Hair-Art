@@ -13,10 +13,10 @@
 
 .navigation__bar__button {
   @include media("<phone") {
-    scale: 0.45;
-    -ms-transform: scale(0.45);
-    -moz-transform: scale(0.45);
-    -webkit-transform: scale(0.45);
+    scale: 0.5;
+    -ms-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -webkit-transform: scale(0.5);
   }
 }
 
