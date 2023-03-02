@@ -1,6 +1,6 @@
 class Detection {
   isMobile() {
-    if (this.isMobileChecked) {
+    if (!this.isMobileChecked) {
       this.isMobileChecked = true;
 
       this.isMobileCheck =
@@ -11,7 +11,7 @@ class Detection {
   }
 
   isDesktop() {
-    if (this.DesktopChecked) {
+    if (!this.DesktopChecked) {
       this.DesktopChecked = true;
 
       this.DesktopCheck =
@@ -22,7 +22,7 @@ class Detection {
   }
 
   isTablet() {
-    if (this.TabletChecked) {
+    if (!this.TabletChecked) {
       this.TabletChecked = true;
 
       this.TabletCheck = document.documentElement.classList.contains("tablet");

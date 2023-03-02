@@ -21,9 +21,6 @@ app.use((req, res, next) => {
   let ua = UAParser(req.headers["user-agent"]);
   console.log(ua);
 
-  let device = ua.device;
-  console.log(device);
-
   res.locals.isDesktop = ua.device.type === undefined;
   res.locals.isMobile = ua.device.type === "mobile";
   res.locals.isTablet = ua.device.type === "tablet";

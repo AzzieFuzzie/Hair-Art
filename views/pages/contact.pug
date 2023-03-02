@@ -23,8 +23,9 @@ block content
             
             section.contact__map
                 each section in contact.data.body
-                    if section.slice_type == "contact_map"  
-                        img.contact__map__image__1( src=section.primary.contact_image_1.url)
+                    if section.slice_type == "contact_map"
+                        a.contact__map__image__1(href="https://goo.gl/maps/x2DJFAB2rUdGTiBk6" target="_blank" )  
+                            img( src=section.primary.contact_image_1.url)
                         p.contact__map__description__1=section.primary.contact_description_1
             include footer           
              
