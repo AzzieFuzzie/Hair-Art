@@ -112,7 +112,7 @@
 
   @include media("<phone") {
     flex-direction: column;
-    width: 100%;
+    flex-wrap: nowrap;
   }
 }
 
@@ -123,17 +123,16 @@
   justify-content: space-between;
   align-items: center;
   align-content: center;
-
-  @include media("<phone") {
-    justify-content: space-between;
-    width: 100%;
-    align-content: start;
-    align-items: start;
-  }
+  min-width: 100%;
 }
 
 .treatments__col {
   flex-basis: 47%;
+
+  @include media("<phone") {
+    flex-basis: 100%;
+    width: 100%;
+  }
 }
 
 .line__treatments {
