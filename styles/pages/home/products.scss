@@ -49,11 +49,20 @@
   grid-area: description;
 
   text-indent: 20%;
+
+  @include media("<phone") {
+    text-indent: 10%;
+  }
 }
 
 .home__products__image {
   grid-area: img;
   justify-self: start;
+
+  @include media("<phone") {
+    max-width: 100%;
+    margin-top: 7rem;
+  }
 }
 
 .home__products__image__1 {
@@ -62,6 +71,7 @@
 
   @include media("<phone") {
     justify-self: start;
+    max-width: 70%;
   }
 }
 
@@ -70,7 +80,9 @@
   justify-self: end;
 
   @include media("<phone") {
-    justify-self: start;
+    justify-self: end;
+
+    max-width: 70%;
   }
 }
 
@@ -82,5 +94,9 @@
 
   @include media("<phone") {
     justify-self: center;
+    padding-right: 0;
+    text-indent: 10%;
+    max-width: 60%;
+    margin-top: 7rem;
   }
 }

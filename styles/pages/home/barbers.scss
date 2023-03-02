@@ -82,4 +82,8 @@
   align-self: end;
   justify-self: center;
   @extend %title-140;
+
+  @include media("<phone") {
+    margin-top: 5rem;
+  }
 }

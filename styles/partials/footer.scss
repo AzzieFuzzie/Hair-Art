@@ -96,6 +96,7 @@
 
 .footer__description {
   @extend %description-12;
+  font-size: 1rem;
   grid-area: description;
   text-align: center;
 }
