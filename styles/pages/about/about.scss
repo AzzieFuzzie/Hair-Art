@@ -41,7 +41,7 @@
 .about__hero__image {
   grid-area: img;
   justify-self: start;
-  margin-left: -2.5rem;
+  margin-left: -3rem;
   @include media("<phone") {
     display: none;
     max-width: 100%;
