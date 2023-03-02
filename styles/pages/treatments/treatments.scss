@@ -124,6 +124,9 @@
   align-items: center;
   align-content: center;
   min-width: 100%;
+  @include media("<phone") {
+    padding: 1rem 0;
+  }
 }
 
 .treatments__col {
