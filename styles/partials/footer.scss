@@ -2,7 +2,7 @@
   padding: 8rem 30rem;
   background-color: $color-vulcan;
   color: $color-white;
-
+  position: relative;
   @include media("<phone") {
     padding: 8rem 4rem;
   }
@@ -10,6 +10,7 @@
 .footer__wrapper {
   display: grid;
   column-gap: 1.5rem;
+
   grid-template-areas:
     ". title ."
     "form form form"
