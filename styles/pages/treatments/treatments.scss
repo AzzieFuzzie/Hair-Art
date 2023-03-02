@@ -24,6 +24,7 @@
   display: flex;
   align-items: center;
   background-color: $color-vulcan;
+  padding-top: 5rem;
 }
 
 .treatments__header__center {
@@ -40,7 +41,7 @@
 
 .treatments__title[data-active] {
   @extend %title-140;
-  margin-bottom: 7.5rem;
+  margin-bottom: 5rem;
 
   @include media("<phone") {
     margin: 0 auto;
@@ -97,7 +98,7 @@
 
 .treatments__image {
   position: relative;
-  margin-bottom: 7.5rem;
+  margin-bottom: 5rem;
   max-width: 40rem;
   min-height: 40rem;
 }
