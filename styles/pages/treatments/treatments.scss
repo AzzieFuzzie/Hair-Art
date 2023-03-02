@@ -75,6 +75,9 @@
 
   @include media("<phone") {
     scale: 0.5;
+    -ms-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -webkit-transform: scale(0.5);
     margin-left: 0rem;
   }
 }
@@ -84,6 +87,10 @@
   margin-right: 25rem;
   @include media("<phone") {
     scale: 0.5;
+    -ms-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    margin-left: 0rem;
     margin-right: 0rem;
   }
 }
