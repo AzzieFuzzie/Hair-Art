@@ -4,6 +4,12 @@
   opacity: 0;
   visibility: hidden;
   z-index: z("content");
+  @include media("<phone") {
+    overflow: visible;
+    overflow-x: hidden;
+
+    position: static;
+  }
 }
 
 %page--active {

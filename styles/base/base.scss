@@ -16,6 +16,9 @@ html {
 
   @include media("<phone") {
     font-size: calc(100vw / 750 * 10);
+    overflow: visible;
+
+    position: static;
   }
 }
 
@@ -24,10 +27,21 @@ body {
   @extend %description-32;
   line-height: 1.1;
   font-family: $font-montreal;
+  @include media("<phone") {
+    overflow: visible;
+
+    position: static;
+  }
 }
 
 body.hide {
   overflow: hidden;
+
+  @include media("<phone") {
+    overflow: visible;
+
+    position: static;
+  }
 }
 
 a {
@@ -67,6 +81,11 @@ img {
 
 .content {
   @extend %cover;
+  @include media("<phone") {
+    overflow: visible;
+
+    position: static;
+  }
 }
 
 [data-animation="label"],

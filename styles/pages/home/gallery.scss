@@ -6,6 +6,10 @@
   z-index: 1;
   height: 40vh;
 
+  @include media("<phone") {
+    height: 20vh;
+  }
+
   &.is-dragging {
     cursor: grabbing;
   }
