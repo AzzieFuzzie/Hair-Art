@@ -15,7 +15,7 @@
   gap: 1.5rem;
 
   @include media("<phone") {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-areas:
       "title  "
       " img_1  "
