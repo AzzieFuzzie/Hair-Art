@@ -5,6 +5,7 @@ import image02 from "../images/image02.jpg";
 import image03 from "../images/image03.jpg";
 import image04 from "../images/image04.jpg";
 import image05 from "../images/image05.jpg";
+import image06 from "../images/image05.jpg";
 
 export default class Slider {
   constructor() {
@@ -32,27 +33,27 @@ export default class Slider {
         title: "Wash & Blow Dry",
       },
       {
-        src: image04,
+        src: image01,
         text: massageSection,
         title: "Massage",
       },
       {
-        src: image04,
+        src: image06,
         text: homeSection,
         title: "Home Service",
       },
       {
-        src: image04,
+        src: image02,
         text: beardSection,
         title: "Beard",
       },
       {
-        src: image04,
+        src: image05,
         text: hairCutsSection,
         title: "Hair Cuts",
       },
       {
-        src: image04,
+        src: image03,
         text: facialSection,
         title: "Facials & Wax",
       },

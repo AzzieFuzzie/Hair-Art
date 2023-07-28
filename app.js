@@ -62,6 +62,8 @@ const handleRequest = async () => {
       assets.push(section.items[1]);
       assets.push(section.items[2]);
       assets.push(section.items[3]);
+      assets.push(section.items[4]);
+      assets.push(section.items[5]);
     }
   });
 

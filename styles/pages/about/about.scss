@@ -42,6 +42,7 @@
   grid-area: img;
   justify-self: start;
   margin-left: -3rem;
+  max-height: 50%;
   @include media("<phone") {
     display: none;
     max-width: 100%;
@@ -52,7 +53,7 @@
   grid-area: img_1;
   justify-self: start;
   margin-top: -5rem;
-
+  max-height: 50%;
   @include media("<phone") {
     margin-top: 0;
   }
@@ -105,12 +106,14 @@
 }
 .about__barbers__image__2 {
   grid-area: img_2;
+  max-height: 70%;
   @include media("<phone") {
     max-width: 100%;
   }
 }
 .about__barbers__image__3 {
   grid-area: img_3;
+  max-height: 70%;
   @include media("<phone") {
     max-width: 100%;
   }
