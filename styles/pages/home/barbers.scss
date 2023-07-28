@@ -64,8 +64,6 @@
   object-fit: cover;
   @include media("<phone") {
     width: 50%;
-
-    object-fit: fill;
   }
 }
 
