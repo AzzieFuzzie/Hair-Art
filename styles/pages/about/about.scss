@@ -4,12 +4,13 @@
 .about_wrapper {
 }
 .about__hero {
-  padding: 15rem 4rem;
+  padding: 10rem 4rem;
   display: grid;
   grid-template-columns: 30rem 1fr 30vw 1fr;
+  grid-template-rows: 1fr 30vh;
   grid-template-areas:
     ". title title img"
-    ". . img_1  img"
+    ". img_1 . img"
     ". description description .";
 
   gap: 1.5rem;
@@ -41,8 +42,8 @@
 .about__hero__image {
   grid-area: img;
   justify-self: start;
-  margin-left: -3rem;
-  max-width: 100%;
+
+  max-height: 100%;
   @include media("<phone") {
     display: none;
     max-width: 100%;
@@ -52,8 +53,8 @@
 .about__hero__image__1 {
   grid-area: img_1;
   justify-self: start;
-  margin-top: -5rem;
-  max-height: 50%;
+
+  max-height: 100%;
   @include media("<phone") {
     margin-top: 0;
     width: 100%;
